@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EduFlex - Plateforme e-learning intelligente</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts - Poppins -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top shadow-sm">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="#">
+                <span class="text-gradient">EduFlex</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Accueil</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#features">Fonctionnalités</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#how-it-works">Comment ça marche</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#testimonials">Témoignages</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contact</a>
+                    </li>
+                </ul>
+                <div class="d-flex">
+                    <button class="btn btn-outline-primary me-2" data-bs-toggle="modal" data-bs-target="#loginModal">Se connecter</button>
+                    <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#signupModal">S'inscrire</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section" id="hero">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-5 mb-lg-0">
+                    <h1 class="display-4 fw-bold mb-4">Apprenez à votre rythme avec l'IA qui comprend vos besoins</h1>
+                    <p class="lead mb-5">EduFlex personnalise votre parcours d'apprentissage en ligne grâce à l'intelligence artificielle</p>
+                    <button class="btn btn-success btn-lg px-5 py-3 rounded-pill">Commencer gratuitement</button>
+                </div>
+                <div class="col-lg-6">
+                    <div class="hero-image shadow rounded">
+                        <img src="creer-site-e-learning-740x416.jpg" alt="Apprenant utilisant la plateforme EduFlex" class="img-fluid rounded">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="py-5 py-md-7 bg-white" id="features">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="display-5 fw-bold mb-3">Fonctionnalités clés</h2>
+                <p class="lead text-muted mx-auto" style="max-width: 700px;">Découvrez comment EduFlex révolutionne l'apprentissage en ligne avec des outils innovants</p>
+            </div>
+
+            <div class="row g-4">
+                <!-- Feature 1 -->
+                <div class="col-md-4">
+                    <div class="card h-100 border-0 shadow-sm hover-shadow">
+                        <div class="card-body text-center p-5">
+                            <div class="feature-icon bg-primary-light rounded-circle mb-4">
+                                <i class="fas fa-book-open text-primary"></i>
+                            </div>
+                            <h3 class="h4 fw-bold mb-3">Parcours personnalisés</h3>
+                            <p class="text-muted">Notre IA analyse votre style d'apprentissage et adapte le contenu pour maximiser votre progression et votre compréhension.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Feature 2 -->
+                <div class="col-md-4">
+                    <div class="card h-100 border-0 shadow-sm hover-shadow">
+                        <div class="card-body text-center p-5">
+                            <div class="feature-icon bg-primary-light rounded-circle mb-4">
+                                <i class="fas fa-film text-primary"></i>
+                            </div>
+                            <h3 class="h4 fw-bold mb-3">Contenu multimédia interactif</h3>
+                            <p class="text-muted">Vidéos, quiz, exercices pratiques et simulations pour un apprentissage immersif et engageant qui stimule votre motivation.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Feature 3 -->
+                <div class="col-md-4">
+                    <div class="card h-100 border-0 shadow-sm hover-shadow">
+                        <div class="card-body text-center p-5">
+                            <div class="feature-icon bg-primary-light rounded-circle mb-4">
+                                <i class="fas fa-award text-primary"></i>
+                            </div>
+                            <h3 class="h4 fw-bold mb-3">Certification reconnue</h3>
+                            <p class="text-muted">Obtenez des certifications valorisées par les employeurs et développez vos compétences professionnelles avec nos programmes accrédités.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section class="py-5 py-md-7 bg-light" id="how-it-works">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="display-5 fw-bold mb-3">Comment ça marche</h2>
+                <p class="lead text-muted mx-auto" style="max-width: 700px;">Un processus simple en quatre étapes pour transformer votre apprentissage</p>
+            </div>
+
+            <div class="position-relative">
+                <!-- Timeline line (visible on desktop) -->
+                <div class="timeline-line d-none d-md-block"></div>
+
+                <!-- Step 1 -->
+                <div class="row timeline-item mb-5">
+                    <div class="col-md-6 text-md-end pe-md-5">
+                        <h3 class="h4 fw-bold mb-3">Étape 1: Inscription et test de positionnement</h3>
+                        <p class="text-muted">Créez votre compte et passez un test initial qui permet à notre IA d'évaluer votre niveau et vos préférences d'apprentissage.</p>
+                    </div>
+                    <div class="col-md-6 position-relative">
+                        <div class="timeline-point">1</div>
+                    </div>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="row timeline-item mb-5">
+                    <div class="col-md-6 position-relative order-md-1">
+                        <div class="timeline-point">2</div>
+                    </div>
+                    <div class="col-md-6 ps-md-5 order-md-2">
+                        <h3 class="h4 fw-bold mb-3">Étape 2: Recommandations personnalisées</h3>
+                        <p class="text-muted">Recevez un parcours d'apprentissage sur mesure avec des cours et des ressources adaptés à vos objectifs et à votre style d'apprentissage.</p>
+                    </div>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="row timeline-item mb-5">
+                    <div class="col-md-6 text-md-end pe-md-5">
+                        <h3 class="h4 fw-bold mb-3">Étape 3: Apprentissage à votre rythme</h3>
+                        <p class="text-muted">Suivez les cours quand vous voulez, où vous voulez. Notre plateforme s'adapte à votre emploi du temps et à votre progression.</p>
+                    </div>
+                    <div class="col-md-6 position-relative">
+                        <div class="timeline-point">3</div>
+                    </div>
+                </div>
+
+                <!-- Step 4 -->
+                <div class="row timeline-item">
+                    <div class="col-md-6 position-relative order-md-1">
+                        <div class="timeline-point">4</div>
+                    </div>
+                    <div class="col-md-6 ps-md-5 order-md-2">
+                        <h3 class="h4 fw-bold mb-3">Étape 4: Certification finale</h3>
+                        <p class="text-muted">Validez vos acquis avec des évaluations finales et obtenez une certification reconnue que vous pourrez partager avec votre réseau professionnel.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Statistics Section -->
+    <section class="py-5 py-md-7 bg-primary text-white" id="statistics">
+        <div class="container">
+            <div class="row text-center">
+                <!-- Students -->
+                <div class="col-md-4 mb-5 mb-md-0">
+                    <div class="stat-icon mb-3">
+                        <i class="fas fa-users fa-2x"></i>
+                    </div>
+                    <div class="h1 fw-bold mb-2">
+                        <span class="counter" data-target="10000">0</span>+
+                    </div>
+                    <p class="h5 fw-normal">étudiants</p>
+                </div>
+
+                <!-- Courses -->
+                <div class="col-md-4 mb-5 mb-md-0">
+                    <div class="stat-icon mb-3">
+                        <i class="fas fa-book-open fa-2x"></i>
+                    </div>
+                    <div class="h1 fw-bold mb-2">
+                        <span class="counter" data-target="500">0</span>+
+                    </div>
+                    <p class="h5 fw-normal">cours disponibles</p>
+                </div>
+
+                <!-- Satisfaction -->
+                <div class="col-md-4">
+                    <div class="stat-icon mb-3">
+                        <i class="fas fa-thumbs-up fa-2x"></i>
+                    </div>
+                    <div class="h1 fw-bold mb-2">
+                        <span class="counter" data-target="95">0</span>%
+                    </div>
+                    <p class="h5 fw-normal">taux de satisfaction</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="py-5 py-md-7 bg-white" id="testimonials">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="display-5 fw-bold mb-3">Témoignages</h2>
+                <p class="lead text-muted mx-auto" style="max-width: 700px;">Découvrez ce que nos étudiants disent de leur expérience avec EduFlex</p>
+            </div>
+
+            <div id="testimonialCarousel" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    <!-- Testimonial 1 -->
+                    <div class="carousel-item active">
+                        <div class="testimonial-card bg-light p-4 p-md-5 rounded-3 shadow-sm mx-auto" style="max-width: 800px;">
+                            <div class="text-center mb-4">
+                                <img src="pngtree-college-or-university-young-student-woman-pointing-to-the-side-present-png-image_17633497.png" alt="Sophie Martin" class="rounded-circle border border-4 border-primary" width="100" height="100">
+                                <h4 class="mt-3 mb-1">Sophie Martin</h4>
+                                <p class="text-primary mb-4">Étudiante en reconversion</p>
+                                <div class="testimonial-text">
+                                    <p class="lead fst-italic">"Grâce à EduFlex, j'ai pu me reconvertir dans le développement web en seulement 6 mois. La personnalisation du parcours a fait toute la différence !"</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Testimonial 2 -->
+                    <div class="carousel-item">
+                        <div class="testimonial-card bg-light p-4 p-md-5 rounded-3 shadow-sm mx-auto" style="max-width: 800px;">
+                            <div class="text-center mb-4">
+                                <img src="1744884029036.jpg" alt="Yassine Janane" class="rounded-circle border border-4 border-primary" width="100" height="100">
+                                <h4 class="mt-3 mb-1">Yassine Janane</h4>
+                                <p class="text-primary mb-4">Entrepreneur</p>
+                                <div class="testimonial-text">
+                                    <p class="lead fst-italic">"J'avais besoin de compétences en marketing digital rapidement. EduFlex m'a proposé exactement ce qu'il me fallait, avec un rythme adapté à mon emploi du temps chargé."</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Testimonial 3 -->
+                    <div class="carousel-item">
+                        <div class="testimonial-card bg-light p-4 p-md-5 rounded-3 shadow-sm mx-auto" style="max-width: 800px;">
+                            <div class="text-center mb-4">
+                                <img src="Un-DRH-ne-devrait-pas.jpg" alt="Léa Moreau" class="rounded-circle border border-4 border-primary" width="100" height="100">
+                                <h4 class="mt-3 mb-1">Léa Moreau</h4>
+                                <p class="text-primary mb-4">Professionnelle RH</p>
+                                <div class="testimonial-text">
+                                    <p class="lead fst-italic">"La certification obtenue sur EduFlex a été immédiatement reconnue par mon employeur. J'ai pu évoluer dans mon poste grâce aux compétences acquises."</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Controls -->
+                <button class="carousel-control-prev" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon bg-primary rounded-circle" aria-hidden="true"></span>
+                    <span class="visually-hidden">Précédent</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="next">
+                    <span class="carousel-control-next-icon bg-primary rounded-circle" aria-hidden="true"></span>
+                    <span class="visually-hidden">Suivant</span>
+                </button>
+
+                <!-- Indicators -->
+                <div class="carousel-indicators position-relative mt-4">
+                    <button type="button" data-bs-target="#testimonialCarousel" data-bs-slide-to="0" class="active bg-primary" aria-current="true" aria-label="Témoignage 1"></button>
+                    <button type="button" data-bs-target="#testimonialCarousel" data-bs-slide-to="1" class="bg-primary" aria-label="Témoignage 2"></button>
+                    <button type="button" data-bs-target="#testimonialCarousel" data-bs-slide-to="2" class="bg-primary" aria-label="Témoignage 3"></button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="py-5 py-md-7 bg-light" id="faq">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="display-5 fw-bold mb-3">Questions fréquentes</h2>
+                <p class="lead text-muted mx-auto" style="max-width: 700px;">Tout ce que vous devez savoir sur EduFlex et notre approche d'apprentissage</p>
+            </div>
+
+            <div class="accordion mx-auto" id="faqAccordion" style="max-width: 800px;">
+                <!-- Question 1 -->
+                <div class="accordion-item border mb-3 rounded-3 shadow-sm">
+                    <h2 class="accordion-header" id="headingOne">
+                        <button class="accordion-button rounded-3" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                            Comment fonctionne la personnalisation des parcours ?
+                        </button>
+                    </h2>
+                    <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                            Notre algorithme d'IA analyse votre style d'apprentissage, vos objectifs et votre niveau initial pour créer un parcours sur mesure. Il s'adapte en continu à votre progression et à vos résultats pour optimiser votre apprentissage.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Question 2 -->
+                <div class="accordion-item border mb-3 rounded-3 shadow-sm">
+                    <h2 class="accordion-header" id="headingTwo">
+                        <button class="accordion-button collapsed rounded-3" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                            Les certifications sont-elles reconnues par les entreprises ?
+                        </button>
+                    </h2>
+                    <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                            Oui, nos certifications sont reconnues par de nombreuses entreprises et organisations professionnelles. Nous travaillons en partenariat avec des experts de l'industrie pour garantir que nos programmes répondent aux exigences du marché du travail.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Question 3 -->
+                <div class="accordion-item border mb-3 rounded-3 shadow-sm">
+                    <h2 class="accordion-header" id="headingThree">
+                        <button class="accordion-button collapsed rounded-3" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                            Puis-je accéder aux cours sur mobile ?
+                        </button>
+                    </h2>
+                    <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                            Absolument ! Notre plateforme est entièrement responsive et disponible sur tous les appareils. Nous proposons également une application mobile dédiée pour iOS et Android, vous permettant d'apprendre même hors connexion.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Question 4 -->
+                <div class="accordion-item border mb-3 rounded-3 shadow-sm">
+                    <h2 class="accordion-header" id="headingFour">
+                        <button class="accordion-button collapsed rounded-3" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                            Combien de temps faut-il pour compléter un parcours ?
+                        </button>
+                    </h2>
+                    <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                            La durée varie selon le parcours choisi et votre rythme d'apprentissage. En moyenne, nos parcours professionnels peuvent être complétés en 3 à 6 mois avec un investissement de 5 à 10 heures par semaine. Notre système vous indique une estimation personnalisée en fonction de votre progression.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Question 5 -->
+                <div class="accordion-item border mb-3 rounded-3 shadow-sm">
+                    <h2 class="accordion-header" id="headingFive">
+                        <button class="accordion-button collapsed rounded-3" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                            Y a-t-il un support disponible si je rencontre des difficultés ?
+                        </button>
+                    </h2>
+                    <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                            Oui, nous offrons un support complet : assistance technique 24/7, forum communautaire, et accès à des tuteurs experts dans chaque domaine. Pour les formules premium, vous bénéficiez également de sessions individuelles de coaching.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-5" id="contact">
+        <div class="container">
+            <div class="row g-4">
+                <!-- About -->
+                <div class="col-lg-3 col-md-6">
+                    <h5 class="mb-4 fw-bold">EduFlex</h5>
+                    <p class="text-muted">Plateforme d'apprentissage en ligne personnalisée par l'IA pour une expérience éducative optimale.</p>
+                    <div class="social-icons mt-4">
+                        <a href="#" class="text-muted me-3"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-muted me-3"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-muted me-3"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-muted"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div class="col-lg-3 col-md-6">
+                    <h5 class="mb-4 fw-bold">Liens rapides</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="#" class="text-muted text-decoration-none">Accueil</a></li>
+                        <li class="mb-2"><a href="#features" class="text-muted text-decoration-none">Fonctionnalités</a></li>
+                        <li class="mb-2"><a href="#how-it-works" class="text-muted text-decoration-none">Comment ça marche</a></li>
+                        <li class="mb-2"><a href="#testimonials" class="text-muted text-decoration-none">Témoignages</a></li>
+                        <li><a href="#" class="text-muted text-decoration-none">Blog</a></li>
+                    </ul>
+                </div>
+
+                <!-- Legal -->
+                <div class="col-lg-3 col-md-6">
+                    <h5 class="mb-4 fw-bold">Informations légales</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="#" class="text-muted text-decoration-none">Conditions d'utilisation</a></li>
+                        <li class="mb-2"><a href="#" class="text-muted text-decoration-none">Politique de confidentialité</a></li>
+                        <li class="mb-2"><a href="#" class="text-muted text-decoration-none">Mentions légales</a></li>
+                        <li><a href="#" class="text-muted text-decoration-none">Cookies</a></li>
+                    </ul>
+                </div>
+
+                <!-- Newsletter -->
+                <div class="col-lg-3 col-md-6">
+                    <h5 class="mb-4 fw-bold">Newsletter</h5>
+                    <p class="text-muted">Inscrivez-vous pour recevoir nos actualités et offres spéciales.</p>
+                    <form class="mt-4">
+                        <div class="input-group mb-3">
+                            <input type="email" class="form-control" placeholder="Votre email" aria-label="Votre email">
+                            <button class="btn btn-success" type="button">S'inscrire</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <div class="border-top border-secondary pt-4 mt-5 text-center text-muted">
+                <p>&copy; <span id="currentYear"></span> EduFlex. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Login Modal -->
+    <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="loginModalLabel">Connexion</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="mb-3">
+                            <label for="loginEmail" class="form-label">Email</label>
+                            <input type="email" class="form-control" id="loginEmail" placeholder="votre@email.com" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="loginPassword" class="form-label">Mot de passe</label>
+                            <input type="password" class="form-control" id="loginPassword" placeholder="••••••••" required>
+                        </div>
+                        <div class="mb-3 d-flex justify-content-between align-items-center">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="rememberMe">
+                                <label class="form-check-label" for="rememberMe">
+                                    Se souvenir de moi
+                                </label>
+                            </div>
+                            <a href="#" class="text-primary">Mot de passe oublié ?</a>
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100">Se connecter</button>
+                    </form>
+                    <div class="text-center mt-3">
+                        <p class="mb-0">Pas encore de compte ? <a href="#" data-bs-toggle="modal" data-bs-target="#signupModal" data-bs-dismiss="modal">S'inscrire</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Signup Modal -->
+    <div class="modal fade" id="signupModal" tabindex="-1" aria-labelledby="signupModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="signupModalLabel">Créer un compte</h5>
+                    <button type="button"  id="signupModalLabel">Créer un compte</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="row mb-3">
+                            <div class="col">
+                                <label for="firstName" class="form-label">Prénom</label>
+                                <input type="text" class="form-control" id="firstName" placeholder="Prénom" required>
+                            </div>
+                            <div class="col">
+                                <label for="lastName" class="form-label">Nom</label>
+                                <input type="text" class="form-control" id="lastName" placeholder="Nom" required>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="signupEmail" class="form-label">Email</label>
+                            <input type="email" class="form-control" id="signupEmail" placeholder="votre@email.com" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="signupPassword" class="form-label">Mot de passe</label>
+                            <input type="password" class="form-control" id="signupPassword" placeholder="••••••••" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="confirmPassword" class="form-label">Confirmer le mot de passe</label>
+                            <input type="password" class="form-control" id="confirmPassword" placeholder="••••••••" required>
+                        </div>
+                        <div class="mb-3 form-check">
+                            <input type="checkbox" class="form-check-input" id="termsCheck" required>
+                            <label class="form-check-label" for="termsCheck">
+                                J'accepte les <a href="#" class="text-primary">conditions d'utilisation</a> et la <a href="#" class="text-primary">politique de confidentialité</a>
+                            </label>
+                        </div>
+                        <button type="submit" class="btn btn-success w-100">S'inscrire</button>
+                    </form>
+                    <div class="text-center mt-3">
+                        <p class="mb-0">Déjà inscrit ? <a href="#" data-bs-toggle="modal" data-bs-target="#loginModal" data-bs-dismiss="modal">Se connecter</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap 5 JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src="script.js"></script>
+</body>
+</html>
