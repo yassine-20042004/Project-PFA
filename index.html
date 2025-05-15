@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EduFlex - Plateforme e-learning intelligente</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts - Poppins -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+   
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top shadow-sm">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="#">
+                <span class="text-gradient">EduFlex</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="coursesDropdown" role="button" data-bs-toggle="dropdown">
+                            Catalogue
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#loginModal">Développement Web</a></li>
+                            <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#loginModal">Intelligence Artificielle</a></li>
+                            <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#loginModal">Data Science</a></li>
+                            <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#loginModal">Marketing Digital</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#business">Pour les entreprises</a>
+                    </li>
+                </ul>
+                <div class="d-flex align-items-center">
+                    <a href="#" class="text-dark me-3 text-decoration-none">Enseigner sur EduFlex</a>
+                    <button class="btn btn-outline-primary me-2" data-bs-toggle="modal" data-bs-target="#loginModal">Se connecter</button>
+                    <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#signupModal">S'inscrire</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section bg-light py-5 mt-5">
+        <div class="container py-5">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <span class="badge bg-primary mb-3">N°1 de la formation en ligne</span>
+                    <h1 class="display-4 fw-bold mb-3">Formez-vous aux métiers qui recrutent</h1>
+                    <p class="lead mb-4">Accédez à plus de 1000 cours certifiants créés par des experts de l'industrie. Profitez de -50% sur votre premier cours !</p>
+                    <div class="d-flex gap-3 mb-4">
+                        <button class="btn btn-primary btn-lg" data-bs-toggle="modal" data-bs-target="#signupModal">
+                            <span class="fw-bold">Commencer maintenant</span>
+                            <small class="d-block">Premier cours à 24,99€</small>
+                        </button>
+                        <button class="btn btn-outline-dark btn-lg" data-bs-toggle="modal" data-bs-target="#loginModal">Voir le catalogue</button>
+                    </div>
+                    <div class="social-proof d-flex align-items-center gap-4">
+                        <div class="ratings">
+                            <div class="text-warning mb-1">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                                <span class="ms-2 fw-bold">4.8/5</span>
+                            </div>
+                            <small class="text-muted">50 000+ avis vérifiés</small>
+                        </div>
+                        <div class="trusted-by">
+                            <small class="text-muted d-block mb-1">Ils nous font confiance :</small>
+                            <img src="https://placehold.co/200x30" alt="Entreprises partenaires" class="img-fluid">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 position-relative">
+                    <div class="hero-image-wrapper">
+                        <img src="users/EDULER.png" alt="EduFlex Learning Platform" class="img-fluid rounded-3 shadow">
+                        <div class="floating-card bg-white p-3 rounded shadow-lg position-absolute" style="bottom: 30px; right: -20px; max-width: 250px;">
+                            <div class="d-flex align-items-center gap-3 mb-2">
+                                <div class="rounded-circle bg-success text-white p-2">
+                                    <i class="fas fa-check"></i>
+                                </div>
+                                <div>
+                                    <small class="text-muted">Dernière inscription</small>
+                                    <p class="mb-0 small fw-bold">Il y a 2 minutes</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="py-5 bg-white">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-md-3">
+                    <div class="stats-item">
+                        <div class="stats-number">100K+</div>
+                        <div class="text-muted">Apprenants actifs</div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="stats-item">
+                        <div class="stats-number">1000+</div>
+                        <div class="text-muted">Cours disponibles</div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="stats-item">
+                        <div class="stats-number">250+</div>
+                        <div class="text-muted">Experts formateurs</div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="stats-item">
+                        <div class="stats-number">95%</div>
+                        <div class="text-muted">Taux de satisfaction</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us Section -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="display-6 fw-bold mb-3">Pourquoi choisir EduFlex ?</h2>
+                <p class="lead text-muted">Une formation en ligne qui fait la différence</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <div class="card-body p-4">
+                            <div class="feature-icon mb-3">
+                                <i class="fas fa-certificate text-primary fa-2x"></i>
+                            </div>
+                            <h4 class="fw-bold mb-3">Certification reconnue</h4>
+                            <p class="text-muted mb-0">Obtenez des certificats reconnus par les entreprises et valorisez votre CV.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <div class="card-body p-4">
+                            <div class="feature-icon mb-3">
+                                <i class="fas fa-users text-primary fa-2x"></i>
+                            </div>
+                            <h4 class="fw-bold mb-3">Experts de l'industrie</h4>
+                            <p class="text-muted mb-0">Apprenez avec des formateurs expérimentés venant des plus grandes entreprises.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <div class="card-body p-4">
+                            <div class="feature-icon mb-3">
+                                <i class="fas fa-clock text-primary fa-2x"></i>
+                            </div>
+                            <h4 class="fw-bold mb-3">Flexibilité totale</h4>
+                            <p class="text-muted mb-0">Formez-vous à votre rythme, où que vous soyez, quand vous voulez.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Categories Section -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <h2 class="display-6 fw-bold mb-4">Explorez nos catégories populaires</h2>
+            <div class="row g-4">
+                <div class="col-md-3">
+                    <div class="category-card card p-4">
+                        <div class="category-icon">
+                            <i class="fas fa-code"></i>
+                        </div>
+                        <h5 class="fw-bold mb-2">Développement Web</h5>
+                        <p class="text-muted mb-0">200+ cours</p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="category-card card p-4">
+                        <div class="category-icon">
+                            <i class="fas fa-brain"></i>
+                        </div>
+                        <h5 class="fw-bold mb-2">Intelligence Artificielle</h5>
+                        <p class="text-muted mb-0">150+ cours</p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="category-card card p-4">
+                        <div class="category-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h5 class="fw-bold mb-2">Data Science</h5>
+                        <p class="text-muted mb-0">180+ cours</p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="category-card card p-4">
+                        <div class="category-icon">
+                            <i class="fas fa-bullhorn"></i>
+                        </div>
+                        <h5 class="fw-bold mb-2">Marketing Digital</h5>
+                        <p class="text-muted mb-0">120+ cours</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Courses Section -->
+    <section class="py-5 bg-white">
+        <div class="container">
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <div>
+                    <h2 class="display-6 fw-bold mb-2">Les plus populaires</h2>
+                    <p class="text-muted mb-0">Rejoignez des milliers d'apprenants satisfaits</p>
+                </div>
+                <div class="d-flex align-items-center gap-3">
+                    <span class="text-success"><i class="fas fa-fire me-2"></i>Offre limitée</span>
+                    <a href="#" class="btn btn-outline-primary">Voir tous les cours</a>
+                </div>
+            </div>
+            <div class="row g-4">
+                <!-- Course 1 -->
+                <div class="col-md-4">
+                    <div class="course-card card h-100 border-0 shadow-sm">
+                        <div class="position-relative">
+                            <img src="users/Artificial-Intelligence-Training-Courses.jpg" class="card-img-top course-image" alt="AI Course">
+                            <span class="badge bg-danger position-absolute top-0 end-0 m-3">-50% Aujourd'hui</span>
+                        </div>
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <span class="badge bg-primary">Intelligence Artificielle</span>
+                                <div class="price-wrapper">
+                                    <span class="text-decoration-line-through text-muted me-2">99,99 €</span>
+                                    <span class="fw-bold text-primary">49,99 €</span>
+                                </div>
+                            </div>
+                            <h5 class="fw-bold mb-3">Introduction à l'IA et au Machine Learning</h5>
+                            <p class="text-muted mb-3">Apprenez les fondamentaux de l'IA et du ML avec des projets pratiques.</p>
+                            <div class="course-meta d-flex justify-content-between align-items-center mb-3">
+                                <span><i class="far fa-clock me-1"></i> 20 heures</span>
+                                <span class="text-success"><i class="fas fa-user-graduate me-1"></i> 2,500 diplômés</span>
+                            </div>
+                            <div class="course-instructor d-flex align-items-center mb-3">
+                                <img src="users/1.png" alt="Instructor" class="instructor-avatar rounded-circle me-2" style="width: 40px; height: 40px;">
+                                <div>
+                                    <h6 class="mb-0">Dr. Sophie Martin</h6>
+                                    <small class="text-muted">Expert en IA chez Google</small>
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="ratings">
+                                    <i class="fas fa-star text-warning"></i>
+                                    <span class="fw-bold ms-1">4.8</span>
+                                    <span class="text-muted">(500 avis)</span>
+                                </div>
+                                <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#loginModal">
+                                    <i class="fas fa-shopping-cart me-2"></i>Acheter
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Course 2 -->
+                <div class="col-md-4">
+                    <div class="course-card card h-100">
+                        <div class="blur-overlay">
+                            <img src="users/Screenshot 2025-05-08 161812.png" class="card-img-top course-image" alt="Web Dev Course">
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between align-items-center mb-3">
+                                    <span class="badge badge-course">Développement Web</span>
+                                    <span class="course-price">59,99 €</span>
+                                </div>
+                                <h5 class="fw-bold mb-3">Formation Complete Développeur Full-Stack</h5>
+                                <p class="text-muted mb-3">Maîtrisez React, Node.js et les technologies web modernes.</p>
+                                <div class="course-meta d-flex justify-content-between align-items-center">
+                                    <span><i class="far fa-clock me-1"></i> 35 heures</span>
+                                    <span><i class="far fa-user me-1"></i> 3,800 inscrits</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Course 3 -->
+                <div class="col-md-4">
+                    <div class="course-card card h-100">
+                        <div class="blur-overlay">
+                            <img src="users/data-science-course.jpg" class="card-img-top course-image" alt="Data Science Course">
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between align-items-center mb-3">
+                                    <span class="badge badge-ai">Data Science</span>
+                                    <span class="course-price">69,99 €</span>
+                                </div>
+                                <h5 class="fw-bold mb-3">Data Science et Analyse Avancée</h5>
+                                <p class="text-muted mb-3">Python, pandas, scikit-learn et visualisation de données.</p>
+                                <div class="course-meta d-flex justify-content-between align-items-center">
+                                    <span><i class="far fa-clock me-1"></i> 28 heures</span>
+                                    <span><i class="far fa-user me-1"></i> 1,900 inscrits</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Business Section -->
+    <section id="business" class="py-5 bg-primary text-white">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <h2 class="display-5 fw-bold mb-4">EduFlex pour les entreprises</h2>
+                    <p class="lead mb-4">Formez vos équipes avec les meilleurs experts. Accédez à plus de 1000 cours de qualité et des outils de suivi avancés.</p>
+                    <ul class="list-unstyled mb-4">
+                        <li class="mb-3"><i class="fas fa-check-circle me-2"></i> Formation sur mesure pour vos équipes</li>
+                        <li class="mb-3"><i class="fas fa-check-circle me-2"></i> Tableau de bord analytique détaillé</li>
+                        <li class="mb-3"><i class="fas fa-check-circle me-2"></i> Support dédié 24/7</li>
+                    </ul>
+                    <button class="btn btn-light btn-lg">Contactez notre équipe commerciale</button>
+                </div>
+                <div class="col-lg-6">
+                    <img src="https://placehold.co/600x400" alt="EduFlex Business" class="img-fluid rounded-3">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Become Instructor Section -->
+    <section class="become-instructor-banner">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <h2 class="display-5 fw-bold mb-4">Devenez formateur sur EduFlex</h2>
+                    <p class="lead mb-4">Partagez vos connaissances avec des milliers d'apprenants et générez des revenus passifs.</p>
+                    <div class="instructor-stats">
+                        <div class="instructor-stat-item">
+                            <div class="instructor-stat-number">250+</div>
+                            <div>Formateurs actifs</div>
+                        </div>
+                        <div class="instructor-stat-item">
+                            <div class="instructor-stat-number">1M+</div>
+                            <div>Revenus générés</div>
+                        </div>
+                        <div class="instructor-stat-item">
+                            <div class="instructor-stat-number">50K+</div>
+                            <div>Étudiants satisfaits</div>
+                        </div>
+                    </div>
+                    <div class="mt-5">
+                        <a href="#" class="btn btn-light btn-lg me-3" data-bs-toggle="modal" data-bs-target="#loginModal">Commencer à enseigner</a>
+                        <a href="#" class="btn btn-outline-light btn-lg">En savoir plus</a>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <img src="https://placehold.co/600x400" alt="Become Instructor" class="img-fluid rounded-3">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-5">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-4">
+                    <a class="navbar-brand fw-bold mb-4 d-block" href="#">
+                        <span class="text-gradient">EduFlex</span>
+                    </a>
+                    <p class="text-white-50">Transformez votre carrière avec des formations en ligne de qualité.</p>
+                    <div class="d-flex gap-3">
+                        <a href="#" class="text-white-50"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-white-50"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-white-50"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-6">
+                    <h5 class="fw-bold mb-3">Découvrir</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none">Catalogue</a></li>
+                        <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none">Entreprises</a></li>
+                        <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none">Enseigner</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-6">
+                    <h5 class="fw-bold mb-3">Aide</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none">Support</a></li>
+                        <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none">FAQ</a></li>
+                        <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4">
+                    <h5 class="fw-bold mb-3">Newsletter</h5>
+                    <p class="text-white-50">Recevez nos meilleures offres et nouveautés</p>
+                    <form class="d-flex gap-2">
+                        <input type="email" class="form-control" placeholder="Votre email">
+                        <button class="btn btn-primary">S'inscrire</button>
+                    </form>
+                </div>
+            </div>
+            <hr class="my-4 border-secondary">
+            <div class="row align-items-center">
+                <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+                    <p class="mb-0 text-white-50">&copy; 2024 EduFlex. Tous droits réservés.</p>
+                </div>
+                <div class="col-md-6 text-center text-md-end">
+                    <a href="#" class="text-white-50 text-decoration-none me-3">Conditions d'utilisation</a>
+                    <a href="#" class="text-white-50 text-decoration-none">Confidentialité</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Login Modal -->
+    <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header border-0">
+                    <h5 class="modal-title fw-bold" id="loginModalLabel">Connexion</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body px-4 py-3">
+                    <form>
+                        <div class="mb-3">
+                            <label for="loginEmail" class="form-label">Email</label>
+                            <input type="email" class="form-control form-control-lg" id="loginEmail" placeholder="votre@email.com">
+                        </div>
+                        <div class="mb-4">
+                            <div class="d-flex justify-content-between">
+                                <label for="loginPassword" class="form-label">Mot de passe</label>
+                                <a href="#" class="text-decoration-none small">Mot de passe oublié ?</a>
+                            </div>
+                            <input type="password" class="form-control form-control-lg" id="loginPassword" placeholder="Votre mot de passe">
+                        </div>
+                        <div class="d-grid mb-4">
+                            <button type="submit" class="btn btn-primary btn-lg">Se connecter</button>
+                        </div>
+                    </form>
+                    <div class="text-center">
+                        <p class="mb-3 text-muted">Ou connectez-vous avec</p>
+                        <div class="d-flex justify-content-center gap-3">
+                            <a href="#" class="btn btn-outline-secondary rounded-circle p-3">
+                                <i class="fab fa-google"></i>
+                            </a>
+                            <a href="#" class="btn btn-outline-secondary rounded-circle p-3">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="#" class="btn btn-outline-secondary rounded-circle p-3">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                        </div>
+                        <p class="mt-4 mb-0 text-muted">
+                            Pas encore de compte ? <a href="#" data-bs-toggle="modal" data-bs-target="#signupModal" data-bs-dismiss="modal" class="text-decoration-none">S'inscrire</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Signup Modal -->
+    <div class="modal fade" id="signupModal" tabindex="-1" aria-labelledby="signupModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header border-0">
+                    <h5 class="modal-title fw-bold" id="signupModalLabel">Créer un compte</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body px-4 py-3">
+                    <form>
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label for="firstName" class="form-label">Prénom</label>
+                                <input type="text" class="form-control form-control-lg" id="firstName" placeholder="Votre prénom">
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="lastName" class="form-label">Nom</label>
+                                <input type="text" class="form-control form-control-lg" id="lastName" placeholder="Votre nom">
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="signupEmail" class="form-label">Email</label>
+                            <input type="email" class="form-control form-control-lg" id="signupEmail" placeholder="votre@email.com">
+                        </div>
+                        <div class="mb-3">
+                            <label for="signupPassword" class="form-label">Mot de passe</label>
+                            <input type="password" class="form-control form-control-lg" id="signupPassword" placeholder="Créez un mot de passe">
+                        </div>
+                        <div class="mb-4">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="termsCheck">
+                                <label class="form-check-label text-muted small" for="termsCheck">
+                                    En créant un compte, vous acceptez nos <a href="#" class="text-decoration-none">Conditions d'utilisation</a> et notre <a href="#" class="text-decoration-none">Politique de confidentialité</a>.
+                                </label>
+                            </div>
+                        </div>
+                        <div class="d-grid mb-4">
+                            <button type="submit" class="btn btn-primary btn-lg">Créer un compte</button>
+                        </div>
+                    </form>
+                    <div class="text-center">
+                        <p class="mb-3 text-muted">Ou inscrivez-vous avec</p>
+                        <div class="d-flex justify-content-center gap-3">
+                            <a href="#" class="btn btn-outline-secondary rounded-circle p-3">
+                                <i class="fab fa-google"></i>
+                            </a>
+                            <a href="#" class="btn btn-outline-secondary rounded-circle p-3">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="#" class="btn btn-outline-secondary rounded-circle p-3">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                        </div>
+                        <p class="mt-4 mb-0 text-muted">
+                            Déjà un compte ? <a href="#" data-bs-toggle="modal" data-bs-target="#loginModal" data-bs-dismiss="modal" class="text-decoration-none">Se connecter</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Course Details Modal -->
+    <div class="modal fade" id="courseDetailsModal" tabindex="-1">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <div class="modal-header border-0">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-8">
+                                <span class="badge badge-ai mb-3">Intelligence Artificielle</span>
+                                <h2 class="fw-bold mb-4">Introduction à l'IA et au Machine Learning</h2>
+                                <div class="course-meta d-flex gap-4 mb-4">
+                                    <span><i class="far fa-clock me-1"></i> 20 heures</span>
+                                    <span><i class="far fa-user me-1"></i> 2,500 inscrits</span>
+                                    <span><i class="far fa-star me-1"></i> 4.8 (500 avis)</span>
+                                </div>
+                                <div class="course-instructor mb-4">
+                                    <img src="users/1.png" alt="Instructor" class="instructor-avatar">
+                                    <div>
+                                        <h6 class="mb-0">Dr. Sophie Martin</h6>
+                                        <small class="text-muted">Expert en IA chez Google</small>
+                                    </div>
+                                </div>
+                                <div class="course-description mb-4">
+                                    <h5 class="fw-bold mb-3">Description du cours</h5>
+                                    <p>Une formation complète pour maîtriser les fondamentaux de l'Intelligence Artificielle et du Machine Learning. Idéal pour les débutants qui souhaitent comprendre et mettre en pratique les concepts clés.</p>
+                                </div>
+                                <div class="content-preview mb-4">
+                                    <h5 class="fw-bold mb-3">Programme du cours</h5>
+                                    <div class="accordion" id="courseContent">
+                                        <div class="accordion-item">
+                                            <h2 class="accordion-header">
+                                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#chapter1">
+                                                    Chapitre 1 : Introduction à l'IA
+                                                </button>
+                                            </h2>
+                                            <div id="chapter1" class="accordion-collapse collapse show">
+                                                <div class="accordion-body">
+                                                    <ul class="course-curriculum">
+                                                        <li class="curriculum-item">
+                                                            <span><i class="fas fa-play-circle me-2"></i> Qu'est-ce que l'IA ?</span>
+                                                            <small>Gratuit</small>
+                                                        </li>
+                                                        <li class="curriculum-item">
+                                                            <span><i class="fas fa-play-circle me-2"></i> Histoire et évolution</span>
+                                                            <small>Aperçu</small>
+                                                        </li>
+                                                        <li class="curriculum-item locked-content">
+                                                            <span><i class="fas fa-lock me-2"></i> Applications modernes</span>
+                                                            <small>45 min</small>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4">
+                                <div class="card course-cta">
+                                    <div class="card-body">
+                                        <h3 class="fw-bold mb-3">49,99 €</h3>
+                                        <ul class="list-unstyled mb-4">
+                                            <li class="mb-2"><i class="fas fa-check-circle me-2"></i> Accès illimité</li>
+                                            <li class="mb-2"><i class="fas fa-check-circle me-2"></i> Projets pratiques</li>
+                                            <li class="mb-2"><i class="fas fa-check-circle me-2"></i> Certificat de réussite</li>
+                                            <li class="mb-2"><i class="fas fa-check-circle me-2"></i> Support instructeur</li>
+                                        </ul>
+                                        <button class="btn btn-light btn-lg w-100 mb-3" data-bs-toggle="modal" data-bs-target="#loginModal">S'inscrire maintenant</button>
+                                        <small class="d-block text-center text-white-50">Garantie satisfait ou remboursé 30 jours</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+    <!-- Bootstrap 5 JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
