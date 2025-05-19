@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EduFlex - Conférences</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts - Poppins -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/etud-style.css">
+</head>
+<body>
+    <!-- Sidebar -->
+    <div class="sidebar py-3">
+        <div class="text-center py-3 mb-3">
+            <a class="navbar-brand fw-bold" href="../index.html">
+                <span class="text-gradient fs-4">EduFlex</span>
+            </a>
+        </div>
+        <div class="px-3">
+            <div class="position-relative mb-4">
+                <input type="text" class="form-control search-input py-2" placeholder="Rechercher...">
+                <i class="fas fa-search search-icon"></i>
+            </div>
+            <p class="text-muted small text-uppercase ms-3 mb-2">Principal</p>
+            <ul class="nav flex-column mb-4">
+                <li class="nav-item">
+                    <a class="nav-link" href="prof-dashboard.html">
+                        <i class="fas fa-th-large"></i> Tableau de bord
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="mes-cours.html">
+                        <i class="fas fa-book"></i> Mes cours
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="mes-etudiants.html">
+                        <i class="fas fa-user-graduate"></i> Mes étudiants
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="devoirs.html">
+                        <i class="fas fa-tasks"></i> Devoirs
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="prof-quiz.html">
+                        <i class="fas fa-question-circle"></i> Quiz
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="statistiques.html">
+                        <i class="fas fa-chart-bar"></i> Statistiques
+                    </a>
+                </li>
+            </ul>
+            <p class="text-muted small text-uppercase ms-3 mb-2">Communauté</p>
+            <ul class="nav flex-column mb-4">
+                <li class="nav-item">
+                    <a class="nav-link" href="forum.html">
+                        <i class="fas fa-users"></i> Forum
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="messages.html">
+                        <i class="fas fa-comments"></i> Messages
+                        <span class="badge rounded-pill bg-danger float-end">5</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="conference.html">
+                        <i class="fas fa-video"></i> Conférences
+                    </a>
+                </li>
+            </ul>
+            <p class="text-muted small text-uppercase ms-3 mb-2">Compte</p>
+            <ul class="nav flex-column">
+                <li class="nav-item">
+                    <a class="nav-link" href="profil.html">
+                        <i class="fas fa-user-circle"></i> Profil
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="parametres.html">
+                        <i class="fas fa-cog"></i> Paramètres
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="../index.html">
+                        <i class="fas fa-sign-out-alt"></i> Déconnexion
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <!-- Top Navbar -->
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h2 class="mb-0 fw-bold">Conférences</h2>
+            <div class="d-flex align-items-center">
+                <div class="position-relative me-3">
+                    <button class="btn btn-light position-relative" type="button">
+                        <i class="far fa-bell"></i>
+                        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                            3
+                        </span>
+                    </button>
+                </div>
+                <div class="dropdown navbar-profile">
+                    <a class="dropdown-toggle d-flex align-items-center" href="#" role="button" id="profileDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                        <img src="C:\Users\salah\OneDrive\Bureau\eduflex-landing\assets\images\u1.png" alt="Profile" class="avatar me-2">
+                        <div>
+                            <p class="mb-0 fw-medium">Prof. Laurent Martin</p>
+                            <p class="text-muted small mb-0">Enseignant</p>
+                        </div>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-end shadow" aria-labelledby="profileDropdown">
+                        <li><a class="dropdown-item" href="profil.html"><i class="fas fa-user-circle"></i> Mon profil</a></li>
+                        <li><a class="dropdown-item" href="mes-cours.html"><i class="fas fa-book"></i> Mes cours</a></li>
+                        <li><a class="dropdown-item" href="parametres.html"><i class="fas fa-cog"></i> Paramètres</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="../index.html"><i class="fas fa-sign-out-alt"></i> Déconnexion</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Conference Content -->
+        <div class="row g-4">
+            <!-- Upcoming Conferences -->
+            <div class="col-md-8">
+                <div class="card mb-4">
+                    <div class="card-header bg-white d-flex justify-content-between align-items-center">
+                        <h5 class="mb-0">Conférences à venir</h5>
+                        <button class="btn btn-primary">
+                            <i class="fas fa-plus"></i> Nouvelle conférence
+                        </button>
+                    </div>
+                    <div class="card-body">
+                        <!-- Conference 1 -->
+                        <div class="conference-item border rounded p-3 mb-3">
+                            <div class="row align-items-center">
+                                <div class="col-md-2 text-center">
+                                    <div class="date-badge p-2">
+                                        <h3 class="mb-0">15</h3>
+                                        <p class="small mb-0">Mai</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-7">
+                                    <h6 class="mb-1">Introduction au Deep Learning</h6>
+                                    <p class="text-muted small mb-1"><i class="fas fa-clock me-1"></i> 14:00 - 15:30</p>
+                                    <p class="text-muted small mb-0"><i class="fas fa-users me-1"></i> 45 participants</p>
+                                </div>
+                                <div class="col-md-3 text-md-end">
+                                    <button class="btn btn-primary mb-2 mb-md-0">Démarrer</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Conference 2 -->
+                        <div class="conference-item border rounded p-3 mb-3">
+                            <div class="row align-items-center">
+                                <div class="col-md-2 text-center">
+                                    <div class="date-badge p-2">
+                                        <h3 class="mb-0">17</h3>
+                                        <p class="small mb-0">Mai</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-7">
+                                    <h6 class="mb-1">Workshop React Avancé</h6>
+                                    <p class="text-muted small mb-1"><i class="fas fa-clock me-1"></i> 10:00 - 12:00</p>
+                                    <p class="text-muted small mb-0"><i class="fas fa-users me-1"></i> 32 participants</p>
+                                </div>
+                                <div class="col-md-3 text-md-end">
+                                    <button class="btn btn-outline-primary mb-2 mb-md-0">Modifier</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Conference 3 -->
+                        <div class="conference-item border rounded p-3">
+                            <div class="row align-items-center">
+                                <div class="col-md-2 text-center">
+                                    <div class="date-badge p-2">
+                                        <h3 class="mb-0">20</h3>
+                                        <p class="small mb-0">Mai</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-7">
+                                    <h6 class="mb-1">Session Q&R - Projet Final</h6>
+                                    <p class="text-muted small mb-1"><i class="fas fa-clock me-1"></i> 15:00 - 16:30</p>
+                                    <p class="text-muted small mb-0"><i class="fas fa-users me-1"></i> 28 participants</p>
+                                </div>
+                                <div class="col-md-3 text-md-end">
+                                    <button class="btn btn-outline-primary mb-2 mb-md-0">Modifier</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Past Conferences -->
+                <div class="card">
+                    <div class="card-header bg-white">
+                        <h5 class="mb-0">Conférences passées</h5>
+                    </div>
+                    <div class="list-group list-group-flush">
+                        <div class="list-group-item">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div>
+                                    <h6 class="mb-1">Introduction à Python</h6>
+                                    <p class="text-muted small mb-0">10 Mai 2024 · 35 participants</p>
+                                </div>
+                                <button class="btn btn-sm btn-outline-secondary">
+                                    <i class="fas fa-play me-1"></i> Revoir
+                                </button>
+                            </div>
+                        </div>
+                        <div class="list-group-item">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div>
+                                    <h6 class="mb-1">Bases de données NoSQL</h6>
+                                    <p class="text-muted small mb-0">8 Mai 2024 · 28 participants</p>
+                                </div>
+                                <button class="btn btn-sm btn-outline-secondary">
+                                    <i class="fas fa-play me-1"></i> Revoir
+                                </button>
+                            </div>
+                        </div>
+                        <div class="list-group-item">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div>
+                                    <h6 class="mb-1">Architecture Microservices</h6>
+                                    <p class="text-muted small mb-0">5 Mai 2024 · 42 participants</p>
+                                </div>
+                                <button class="btn btn-sm btn-outline-secondary">
+                                    <i class="fas fa-play me-1"></i> Revoir
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Conference Info -->
+            <div class="col-md-4">
+                <!-- Quick Actions -->
+                <div class="card mb-4">
+                    <div class="card-header bg-white">
+                        <h5 class="mb-0">Actions rapides</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="d-grid gap-2">
+                            <button class="btn btn-primary">
+                                <i class="fas fa-video me-2"></i> Démarrer une conférence instantanée
+                            </button>
+                            <button class="btn btn-outline-primary">
+                                <i class="fas fa-calendar-plus me-2"></i> Planifier une conférence
+                            </button>
+                            <button class="btn btn-outline-primary">
+                                <i class="fas fa-cog me-2"></i> Paramètres de conférence
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Conference Stats -->
+                <div class="card">
+                    <div class="card-header bg-white">
+                        <h5 class="mb-0">Statistiques</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="row g-3">
+                            <div class="col-6">
+                                <div class="border rounded p-3 text-center">
+                                    <h3 class="mb-1">12</h3>
+                                    <p class="small text-muted mb-0">Conférences ce mois</p>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="border rounded p-3 text-center">
+                                    <h3 class="mb-1">324</h3>
+                                    <p class="small text-muted mb-0">Participants totaux</p>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="border rounded p-3 text-center">
+                                    <h3 class="mb-1">4.8</h3>
+                                    <p class="small text-muted mb-0">Note moyenne</p>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="border rounded p-3 text-center">
+                                    <h3 class="mb-1">18h</h3>
+                                    <p class="small text-muted mb-0">Temps total</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap 5 JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html> 

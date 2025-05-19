@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EduFlex - Messages</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts - Poppins -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/etud-style.css">
+    <style>
+        .messages-list {
+            height: calc(100vh - 200px);
+            overflow-y: auto;
+        }
+        .message-preview {
+            cursor: pointer;
+        }
+        .message-preview:hover {
+            background-color: rgba(13, 110, 253, 0.05);
+        }
+        .message-preview.active {
+            background-color: rgba(13, 110, 253, 0.1);
+        }
+        .chat-container {
+            height: calc(100vh - 200px);
+            display: flex;
+            flex-direction: column;
+        }
+        .chat-messages {
+            flex-grow: 1;
+            overflow-y: auto;
+            padding: 1rem;
+        }
+        .chat-input {
+            border-top: 1px solid #dee2e6;
+            padding: 1rem;
+            background-color: #fff;
+        }
+        .message-bubble {
+            max-width: 75%;
+            margin-bottom: 1rem;
+            padding: 0.75rem 1rem;
+            border-radius: 1rem;
+        }
+        .message-bubble.received {
+            background-color: #f8f9fa;
+            margin-right: auto;
+        }
+        .message-bubble.sent {
+            background-color: #0d6efd;
+            color: white;
+            margin-left: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="sidebar py-3">
+        <div class="text-center py-3 mb-3">
+            <a class="navbar-brand fw-bold" href="../index.html">
+                <span class="text-gradient fs-4">EduFlex</span>
+            </a>
+        </div>
+        <div class="px-3">
+            <div class="position-relative mb-4">
+                <input type="text" class="form-control search-input py-2" placeholder="Rechercher...">
+                <i class="fas fa-search search-icon"></i>
+            </div>
+            <p class="text-muted small text-uppercase ms-3 mb-2">Administration</p>
+            <ul class="nav flex-column mb-4">
+                <li class="nav-item">
+                    <a class="nav-link" href="admin-dashboard.html">
+                        <i class="fas fa-th-large"></i> Tableau de bord
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="admin-users.html">
+                        <i class="fas fa-users"></i> Utilisateurs
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="admin-instructors.html">
+                        <i class="fas fa-chalkboard-teacher"></i> Formateurs
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="admin-analytics.html">
+                        <i class="fas fa-chart-line"></i> Analytiques
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="admin-reports.html">
+                        <i class="fas fa-file-alt"></i> Rapports
+                    </a>
+                </li>
+            </ul>
+            <p class="text-muted small text-uppercase ms-3 mb-2">Communication</p>
+            <ul class="nav flex-column mb-4">
+                <li class="nav-item">
+                    <a class="nav-link" href="admin-announcements.html">
+                        <i class="fas fa-bullhorn"></i> Annonces
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="admin-messages.html">
+                        <i class="fas fa-envelope"></i> Messages
+                        <span class="badge rounded-pill bg-danger float-end">5</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="admin-forum.html">
+                        <i class="fas fa-comments"></i> Forum
+                    </a>
+                </li>
+            </ul>
+            <p class="text-muted small text-uppercase ms-3 mb-2">Système</p>
+            <ul class="nav flex-column">
+                <li class="nav-item">
+                    <a class="nav-link" href="admin-settings.html">
+                        <i class="fas fa-cog"></i> Paramètres
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">
+                        <i class="fas fa-sign-out-alt"></i> Déconnexion
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <!-- Top Navbar -->
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h2 class="mb-0 fw-bold">Messages</h2>
+            <div class="d-flex align-items-center">
+                <!-- Same navbar content as admin-dashboard.html -->
+            </div>
+        </div>
+
+        <!-- Messages Interface -->
+        <div class="card">
+            <div class="card-body p-0">
+                <div class="row g-0">
+                    <!-- Messages List -->
+                    <div class="col-md-4 border-end">
+                        <div class="p-3 border-bottom">
+                            <div class="input-group">
+                                <input type="text" class="form-control" placeholder="Rechercher...">
+                                <button class="btn btn-outline-secondary" type="button">
+                                    <i class="fas fa-search"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="messages-list">
+                            <!-- Message Preview -->
+                            <div class="message-preview active p-3 border-bottom">
+                                <div class="d-flex align-items-center mb-2">
+                                    <img src="https://placehold.co/40x40?text=JD" class="rounded-circle me-2" alt="User">
+                                    <div class="flex-grow-1">
+                                        <h6 class="mb-0">Jean Dupont</h6>
+                                        <small class="text-muted">Il y a 5 min</small>
+                                    </div>
+                                    <span class="badge bg-primary rounded-pill">2</span>
+                                </div>
+                                <p class="text-muted small mb-0">Question concernant le cours de développement web...</p>
+                            </div>
+                            <!-- More Message Previews -->
+                            <div class="message-preview p-3 border-bottom">
+                                <div class="d-flex align-items-center mb-2">
+                                    <img src="https://placehold.co/40x40?text=ML" class="rounded-circle me-2" alt="User">
+                                    <div class="flex-grow-1">
+                                        <h6 class="mb-0">Marie Laurent</h6>
+                                        <small class="text-muted">Il y a 30 min</small>
+                                    </div>
+                                </div>
+                                <p class="text-muted small mb-0">Merci pour votre aide avec le problème technique...</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Chat Area -->
+                    <div class="col-md-8">
+                        <div class="chat-container">
+                            <!-- Chat Header -->
+                            <div class="p-3 border-bottom">
+                                <div class="d-flex align-items-center">
+                                    <img src="https://placehold.co/40x40?text=JD" class="rounded-circle me-2" alt="User">
+                                    <div>
+                                        <h6 class="mb-0">Jean Dupont</h6>
+                                        <small class="text-success">En ligne</small>
+                                    </div>
+                                    <div class="ms-auto">
+                                        <button class="btn btn-light btn-sm me-2" title="Appel vidéo">
+                                            <i class="fas fa-video"></i>
+                                        </button>
+                                        <button class="btn btn-light btn-sm me-2" title="Appel audio">
+                                            <i class="fas fa-phone"></i>
+                                        </button>
+                                        <button class="btn btn-light btn-sm" title="Plus d'options">
+                                            <i class="fas fa-ellipsis-v"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Chat Messages -->
+                            <div class="chat-messages">
+                                <div class="message-bubble received">
+                                    <p class="mb-1">Bonjour, j'ai une question concernant le cours de développement web.</p>
+                                    <small class="text-muted">10:30</small>
+                                </div>
+                                <div class="message-bubble received">
+                                    <p class="mb-1">Est-ce que vous pourriez m'aider avec les exercices de la semaine 3 ?</p>
+                                    <small class="text-muted">10:31</small>
+                                </div>
+                                <div class="message-bubble sent">
+                                    <p class="mb-1">Bien sûr, je peux vous aider. Quel est le problème spécifique que vous rencontrez ?</p>
+                                    <small class="text-white-50">10:35</small>
+                                </div>
+                            </div>
+
+                            <!-- Chat Input -->
+                            <div class="chat-input">
+                                <form class="d-flex gap-2">
+                                    <button type="button" class="btn btn-light" title="Joindre un fichier">
+                                        <i class="fas fa-paperclip"></i>
+                                    </button>
+                                    <input type="text" class="form-control" placeholder="Écrivez votre message...">
+                                    <button type="submit" class="btn btn-primary">
+                                        <i class="fas fa-paper-plane"></i>
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap 5 JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html> 

@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EduFlex - Profil</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts - Poppins -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/etud-style.css">
+</head>
+<body>
+    <!-- Sidebar -->
+    <div class="sidebar py-3">
+        <div class="text-center py-3 mb-3">
+            <a class="navbar-brand fw-bold" href="../index.html">
+                <span class="text-gradient fs-4">EduFlex</span>
+            </a>
+        </div>
+        <div class="px-3">
+            <div class="position-relative mb-4">
+                <input type="text" class="form-control search-input py-2" placeholder="Rechercher...">
+                <i class="fas fa-search search-icon"></i>
+            </div>
+            <p class="text-muted small text-uppercase ms-3 mb-2">Principal</p>
+            <ul class="nav flex-column mb-4">
+                <li class="nav-item">
+                    <a class="nav-link" href="prof-dashboard.html">
+                        <i class="fas fa-th-large"></i> Tableau de bord
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="mes-cours.html">
+                        <i class="fas fa-book"></i> Mes cours
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="mes-etudiants.html">
+                        <i class="fas fa-user-graduate"></i> Mes étudiants
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="devoirs.html">
+                        <i class="fas fa-tasks"></i> Devoirs
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="prof-quiz.html">
+                        <i class="fas fa-question-circle"></i> Quiz
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="statistiques.html">
+                        <i class="fas fa-chart-bar"></i> Statistiques
+                    </a>
+                </li>
+            </ul>
+            <p class="text-muted small text-uppercase ms-3 mb-2">Communauté</p>
+            <ul class="nav flex-column mb-4">
+                <li class="nav-item">
+                    <a class="nav-link" href="forum.html">
+                        <i class="fas fa-users"></i> Forum
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="messages.html">
+                        <i class="fas fa-comments"></i> Messages
+                        <span class="badge rounded-pill bg-danger float-end">5</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="conference.html">
+                        <i class="fas fa-video"></i> Conférences
+                    </a>
+                </li>
+            </ul>
+            <p class="text-muted small text-uppercase ms-3 mb-2">Compte</p>
+            <ul class="nav flex-column">
+                <li class="nav-item">
+                    <a class="nav-link active" href="profil.html">
+                        <i class="fas fa-user-circle"></i> Profil
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="parametres.html">
+                        <i class="fas fa-cog"></i> Paramètres
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="../index.html">
+                        <i class="fas fa-sign-out-alt"></i> Déconnexion
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <!-- Top Navbar -->
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h2 class="mb-0 fw-bold">Mon Profil</h2>
+            <div class="d-flex align-items-center">
+                <div class="position-relative me-3">
+                    <button class="btn btn-light position-relative" type="button">
+                        <i class="far fa-bell"></i>
+                        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                            3
+                        </span>
+                    </button>
+                </div>
+                <div class="dropdown navbar-profile">
+                    <a class="dropdown-toggle d-flex align-items-center" href="#" role="button" id="profileDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                        <img src="C:\Users\salah\OneDrive\Bureau\eduflex-landing\assets\images\u1.png" alt="Profile" class="avatar me-2">
+                        <div>
+                            <p class="mb-0 fw-medium">Prof. Laurent Martin</p>
+                            <p class="text-muted small mb-0">Enseignant</p>
+                        </div>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-end shadow" aria-labelledby="profileDropdown">
+                        <li><a class="dropdown-item" href="profil.html"><i class="fas fa-user-circle"></i> Mon profil</a></li>
+                        <li><a class="dropdown-item" href="mes-cours.html"><i class="fas fa-book"></i> Mes cours</a></li>
+                        <li><a class="dropdown-item" href="parametres.html"><i class="fas fa-cog"></i> Paramètres</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="../index.html"><i class="fas fa-sign-out-alt"></i> Déconnexion</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Profile Content -->
+        <div class="row g-4">
+            <!-- Profile Info -->
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body text-center">
+                        <div class="position-relative d-inline-block mb-3">
+                            <img src="C:\Users\salah\OneDrive\Bureau\eduflex-landing\assets\images\u1.png" alt="Profile" class="rounded-circle img-thumbnail" style="width: 150px; height: 150px;">
+                            <button class="btn btn-sm btn-primary position-absolute bottom-0 end-0">
+                                <i class="fas fa-camera"></i>
+                            </button>
+                        </div>
+                        <h5 class="mb-1">Prof. Laurent Martin</h5>
+                        <p class="text-muted mb-3">Enseignant en Informatique</p>
+                        <div class="d-flex justify-content-center gap-2 mb-3">
+                            <button class="btn btn-primary">Modifier le profil</button>
+                            <button class="btn btn-outline-primary">CV</button>
+                        </div>
+                        <hr>
+                        <div class="row text-center g-3">
+                            <div class="col-4">
+                                <h5 class="mb-0">127</h5>
+                                <small class="text-muted">Étudiants</small>
+                            </div>
+                            <div class="col-4">
+                                <h5 class="mb-0">5</h5>
+                                <small class="text-muted">Cours</small>
+                            </div>
+                            <div class="col-4">
+                                <h5 class="mb-0">4.8</h5>
+                                <small class="text-muted">Note</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Profile Details -->
+            <div class="col-md-8">
+                <!-- About -->
+                <div class="card mb-4">
+                    <div class="card-header bg-white">
+                        <h5 class="mb-0">À propos</h5>
+                    </div>
+                    <div class="card-body">
+                        <p>Professeur passionné avec plus de 10 ans d'expérience dans l'enseignement de l'informatique. Spécialisé en Intelligence Artificielle, Machine Learning et Développement Web.</p>
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <p class="mb-1"><strong>Email:</strong></p>
+                                <p class="text-muted">laurent.martin@eduflex.com</p>
+                            </div>
+                            <div class="col-md-6">
+                                <p class="mb-1"><strong>Téléphone:</strong></p>
+                                <p class="text-muted">+33 6 12 34 56 78</p>
+                            </div>
+                            <div class="col-md-6">
+                                <p class="mb-1"><strong>Département:</strong></p>
+                                <p class="text-muted">Informatique</p>
+                            </div>
+                            <div class="col-md-6">
+                                <p class="mb-1"><strong>Localisation:</strong></p>
+                                <p class="text-muted">Paris, France</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Expertise -->
+                <div class="card mb-4">
+                    <div class="card-header bg-white">
+                        <h5 class="mb-0">Expertise</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="mb-4">
+                            <h6 class="mb-3">Domaines d'expertise</h6>
+                            <div class="d-flex flex-wrap gap-2">
+                                <span class="badge bg-primary">Intelligence Artificielle</span>
+                                <span class="badge bg-primary">Machine Learning</span>
+                                <span class="badge bg-primary">Deep Learning</span>
+                                <span class="badge bg-primary">Python</span>
+                                <span class="badge bg-primary">JavaScript</span>
+                                <span class="badge bg-primary">React</span>
+                                <span class="badge bg-primary">Node.js</span>
+                                <span class="badge bg-primary">Data Science</span>
+                            </div>
+                        </div>
+                        <div>
+                            <h6 class="mb-3">Compétences techniques</h6>
+                            <div class="mb-3">
+                                <div class="d-flex justify-content-between mb-1">
+                                    <span>Python</span>
+                                    <span>95%</span>
+                                </div>
+                                <div class="progress" style="height: 6px;">
+                                    <div class="progress-bar" role="progressbar" style="width: 95%"></div>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <div class="d-flex justify-content-between mb-1">
+                                    <span>Machine Learning</span>
+                                    <span>90%</span>
+                                </div>
+                                <div class="progress" style="height: 6px;">
+                                    <div class="progress-bar" role="progressbar" style="width: 90%"></div>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <div class="d-flex justify-content-between mb-1">
+                                    <span>JavaScript</span>
+                                    <span>85%</span>
+                                </div>
+                                <div class="progress" style="height: 6px;">
+                                    <div class="progress-bar" role="progressbar" style="width: 85%"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="d-flex justify-content-between mb-1">
+                                    <span>Web Development</span>
+                                    <span>80%</span>
+                                </div>
+                                <div class="progress" style="height: 6px;">
+                                    <div class="progress-bar" role="progressbar" style="width: 80%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Education & Experience -->
+                <div class="card">
+                    <div class="card-header bg-white">
+                        <h5 class="mb-0">Formation & Expérience</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="timeline">
+                            <div class="timeline-item mb-4">
+                                <h6 class="mb-1">Doctorat en Intelligence Artificielle</h6>
+                                <p class="text-muted small mb-2">Université Paris-Saclay · 2010-2013</p>
+                                <p class="small mb-0">Recherche sur l'apprentissage profond et les réseaux de neurones.</p>
+                            </div>
+                            <div class="timeline-item mb-4">
+                                <h6 class="mb-1">Master en Informatique</h6>
+                                <p class="text-muted small mb-2">École Normale Supérieure · 2008-2010</p>
+                                <p class="small mb-0">Spécialisation en apprentissage automatique et traitement des données.</p>
+                            </div>
+                            <div class="timeline-item">
+                                <h6 class="mb-1">Ingénieur en Informatique</h6>
+                                <p class="text-muted small mb-2">École Polytechnique · 2005-2008</p>
+                                <p class="small mb-0">Formation généraliste en informatique et mathématiques.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap 5 JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html> 

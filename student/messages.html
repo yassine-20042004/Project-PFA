@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EduFlex - Messages</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts - Poppins -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/etud-style.css">
+    <style>
+        .chat-container {
+            height: calc(100vh - 200px);
+            overflow: hidden;
+        }
+        .conversations-list {
+            height: 100%;
+            overflow-y: auto;
+        }
+        .chat-messages {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+        .messages-container {
+            flex-grow: 1;
+            overflow-y: auto;
+            padding: 1.5rem;
+        }
+        .message {
+            max-width: 75%;
+            margin-bottom: 1rem;
+        }
+        .message-received {
+            background-color: #f8f9fa;
+            border-radius: 15px 15px 15px 0;
+        }
+        .message-sent {
+            background-color: #0d6efd;
+            color: white;
+            border-radius: 15px 15px 0 15px;
+            margin-left: auto;
+        }
+        .chat-input {
+            border-top: 1px solid #dee2e6;
+            padding: 1rem;
+            background-color: white;
+        }
+        .contact-status {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            display: inline-block;
+            margin-right: 5px;
+        }
+        .status-online {
+            background-color: #198754;
+        }
+        .status-offline {
+            background-color: #6c757d;
+        }
+        .conversation-item {
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+        .conversation-item:hover {
+            background-color: #f8f9fa;
+        }
+        .conversation-item.active {
+            background-color: #e9ecef;
+        }
+    </style>
+</head>
+<body>
+    <!-- Sidebar -->
+    <div class="sidebar py-3">
+        <div class="text-center py-3 mb-3">
+            <a class="navbar-brand fw-bold" href="../index.html">
+                <span class="text-gradient fs-4">EduFlex</span>
+            </a>
+        </div>
+        <div class="px-3">
+            <div class="position-relative mb-4">
+                <input type="text" class="form-control search-input py-2" placeholder="Rechercher...">
+                <i class="fas fa-search search-icon"></i>
+            </div>
+            <p class="text-muted small text-uppercase ms-3 mb-2">Principal</p>
+            <ul class="nav flex-column mb-4">
+                <li class="nav-item">
+                    <a class="nav-link" href="student-dashboard.html">
+                        <i class="fas fa-th-large"></i> Tableau de bord
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="my-courses.html">
+                        <i class="fas fa-book"></i> Mes cours
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="planning.html">
+                        <i class="fas fa-calendar-alt"></i> Planning
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="assignments.html">
+                        <i class="fas fa-tasks"></i> Devoirs
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="quiz.html">
+                        <i class="fas fa-question-circle"></i> Quiz
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="certificates.html">
+                        <i class="fas fa-certificate"></i> Certificats
+                    </a>
+                </li>
+            </ul>
+            <p class="text-muted small text-uppercase ms-3 mb-2">Communauté</p>
+            <ul class="nav flex-column mb-4">
+                <li class="nav-item">
+                    <a class="nav-link" href="forum.html">
+                        <i class="fas fa-users"></i> Forum
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="messages.html">
+                        <i class="fas fa-comments"></i> Messages
+                        <span class="badge rounded-pill bg-danger float-end">3</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="conferences.html">
+                        <i class="fas fa-video"></i> Conférences
+                    </a>
+                </li>
+            </ul>
+            <p class="text-muted small text-uppercase ms-3 mb-2">Compte</p>
+            <ul class="nav flex-column">
+                <li class="nav-item">
+                    <a class="nav-link" href="profile.html">
+                        <i class="fas fa-user-circle"></i> Profil
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="etud-param.html">
+                        <i class="fas fa-cog"></i> Paramètres
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">
+                        <i class="fas fa-sign-out-alt"></i> Déconnexion
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <!-- Top Navbar -->
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h2 class="mb-0 fw-bold">Messages</h2>
+            <div class="d-flex align-items-center">
+                <div class="position-relative me-3">
+                    <button class="btn btn-light position-relative" type="button">
+                        <i class="far fa-bell"></i>
+                        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                            2
+                        </span>
+                    </button>
+                </div>
+                <div class="dropdown navbar-profile">
+                    <a class="dropdown-toggle d-flex align-items-center" href="#" role="button" id="profileDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                        <img src="users/1.png" alt="Profile" class="avatar me-2">
+                        <div>
+                            <p class="mb-0 fw-medium">Marie Dupont</p>
+                            <p class="text-muted small mb-0">Étudiante</p>
+                        </div>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-end shadow" aria-labelledby="profileDropdown">
+                        <li><a class="dropdown-item" href="profile.html"><i class="fas fa-user-circle"></i> Mon profil</a></li>
+                        <li><a class="dropdown-item" href="certificates.html"><i class="fas fa-certificate"></i> Mes certificats</a></li>
+                        <li><a class="dropdown-item" href="etud-param.html"><i class="fas fa-cog"></i> Paramètres</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="../index.html"><i class="fas fa-sign-out-alt"></i> Déconnexion</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Messages Content -->
+        <div class="card chat-container">
+            <div class="row g-0">
+                <!-- Conversations List -->
+                <div class="col-md-4 border-end">
+                    <div class="card-header bg-white py-3">
+                        <div class="input-group">
+                            <input type="text" class="form-control" placeholder="Rechercher une conversation...">
+                            <button class="btn btn-primary" type="button">
+                                <i class="fas fa-search"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="conversations-list">
+                        <!-- Conversation 1 -->
+                        <div class="conversation-item active p-3 border-bottom">
+                            <div class="d-flex align-items-center">
+                                <img src="users/2.png" alt="User" class="rounded-circle me-3" width="48" height="48">
+                                <div class="flex-grow-1">
+                                    <div class="d-flex justify-content-between align-items-center mb-1">
+                                        <h6 class="mb-0">Prof. Thomas Martin</h6>
+                                        <small class="text-muted">14:30</small>
+                                    </div>
+                                    <div class="d-flex align-items-center">
+                                        <span class="contact-status status-online"></span>
+                                        <p class="text-muted small mb-0">Bien reçu, merci pour...</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Conversation 2 -->
+                        <div class="conversation-item p-3 border-bottom">
+                            <div class="d-flex align-items-center">
+                                <img src="users/3.png" alt="User" class="rounded-circle me-3" width="48" height="48">
+                                <div class="flex-grow-1">
+                                    <div class="d-flex justify-content-between align-items-center mb-1">
+                                        <h6 class="mb-0">Sophie Dubois</h6>
+                                        <small class="text-muted">13:15</small>
+                                    </div>
+                                    <div class="d-flex align-items-center">
+                                        <span class="contact-status status-offline"></span>
+                                        <p class="text-muted small mb-0">Pour le projet de groupe...</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Conversation 3 -->
+                        <div class="conversation-item p-3 border-bottom">
+                            <div class="d-flex align-items-center">
+                                <img src="users/4.png" alt="User" class="rounded-circle me-3" width="48" height="48">
+                                <div class="flex-grow-1">
+                                    <div class="d-flex justify-content-between align-items-center mb-1">
+                                        <h6 class="mb-0">Lucas Bernard</h6>
+                                        <small class="text-muted">Hier</small>
+                                    </div>
+                                    <div class="d-flex align-items-center">
+                                        <span class="contact-status status-online"></span>
+                                        <p class="text-muted small mb-0">As-tu terminé l'exercice ?</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Conversation 4 -->
+                        <div class="conversation-item p-3 border-bottom">
+                            <div class="d-flex align-items-center">
+                                <img src="users/5.png" alt="User" class="rounded-circle me-3" width="48" height="48">
+                                <div class="flex-grow-1">
+                                    <div class="d-flex justify-content-between align-items-center mb-1">
+                                        <h6 class="mb-0">Emma Laurent</h6>
+                                        <small class="text-muted">Lun</small>
+                                    </div>
+                                    <div class="d-flex align-items-center">
+                                        <span class="contact-status status-offline"></span>
+                                        <p class="text-muted small mb-0">Merci pour ton aide !</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Chat Area -->
+                <div class="col-md-8">
+                    <div class="chat-messages">
+                        <div class="card-header bg-white py-3">
+                            <div class="d-flex align-items-center">
+                                <img src="users/2.png" alt="User" class="rounded-circle me-3" width="48" height="48">
+                                <div>
+                                    <h6 class="mb-0">Prof. Thomas Martin</h6>
+                                    <small class="text-muted">En ligne</small>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="messages-container">
+                            <!-- Message received -->
+                            <div class="message message-received p-3">
+                                <div class="d-flex align-items-center mb-2">
+                                    <img src="users/2.png" alt="User" class="rounded-circle me-2" width="24" height="24">
+                                    <small class="text-muted">Prof. Thomas Martin • 14:25</small>
+                                </div>
+                                <p class="mb-0">Bonjour Marie, avez-vous des questions sur le dernier cours de React ?</p>
+                            </div>
+
+                            <!-- Message sent -->
+                            <div class="message message-sent p-3">
+                                <div class="d-flex align-items-center justify-content-end mb-2">
+                                    <small class="text-light">14:27 • Vous</small>
+                                </div>
+                                <p class="mb-0">Bonjour Professeur, oui j'aurais besoin d'éclaircissements sur les hooks personnalisés.</p>
+                            </div>
+
+                            <!-- Message received -->
+                            <div class="message message-received p-3">
+                                <div class="d-flex align-items-center mb-2">
+                                    <img src="users/2.png" alt="User" class="rounded-circle me-2" width="24" height="24">
+                                    <small class="text-muted">Prof. Thomas Martin • 14:29</small>
+                                </div>
+                                <p class="mb-0">Bien sûr, je peux vous aider. Pouvez-vous me dire précisément ce qui vous pose problème ?</p>
+                            </div>
+
+                            <!-- Message sent -->
+                            <div class="message message-sent p-3">
+                                <div class="d-flex align-items-center justify-content-end mb-2">
+                                    <small class="text-light">14:30 • Vous</small>
+                                </div>
+                                <p class="mb-0">Je comprends le concept, mais j'ai du mal avec la gestion des dépendances dans le useEffect.</p>
+                            </div>
+                        </div>
+
+                        <!-- Chat Input -->
+                        <div class="chat-input">
+                            <div class="input-group">
+                                <button class="btn btn-light" type="button">
+                                    <i class="far fa-smile"></i>
+                                </button>
+                                <button class="btn btn-light" type="button">
+                                    <i class="fas fa-paperclip"></i>
+                                </button>
+                                <input type="text" class="form-control" placeholder="Écrivez votre message...">
+                                <button class="btn btn-primary" type="button">
+                                    <i class="fas fa-paper-plane"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../assets/js/etud-script.js"></script>
+</body>
+</html> 

@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EduFlex - Messages</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts - Poppins -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/etud-style.css">
+    <style>
+        .message-list {
+            height: calc(100vh - 240px);
+            overflow-y: auto;
+        }
+        
+        .chat-container {
+            height: calc(100vh - 240px);
+        }
+        
+        .chat-messages {
+            height: calc(100% - 60px);
+            overflow-y: auto;
+        }
+        
+        .message-item {
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        
+        .message-item:hover, .message-item.active {
+            background-color: var(--primary-light);
+        }
+        
+        .message-bubble {
+            border-radius: 18px;
+            padding: 10px 15px;
+            max-width: 80%;
+            margin-bottom: 10px;
+        }
+        
+        .message-sent {
+            background-color: var(--primary);
+            color: white;
+            margin-left: auto;
+            border-bottom-right-radius: 5px;
+        }
+        
+        .message-received {
+            background-color: #f0f2f5;
+            color: var(--dark);
+            margin-right: auto;
+            border-bottom-left-radius: 5px;
+        }
+        
+        .message-time {
+            font-size: 0.7rem;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Sidebar -->
+    <div class="sidebar py-3">
+        <div class="text-center py-3 mb-3">
+            <a class="navbar-brand fw-bold" href="../index.html">
+                <span class="text-gradient fs-4">EduFlex</span>
+            </a>
+        </div>
+        <div class="px-3">
+            <div class="position-relative mb-4">
+                <input type="text" class="form-control search-input py-2" placeholder="Rechercher...">
+                <i class="fas fa-search search-icon"></i>
+            </div>
+            <p class="text-muted small text-uppercase ms-3 mb-2">Principal</p>
+            <ul class="nav flex-column mb-4">
+                <li class="nav-item">
+                    <a class="nav-link" href="prof-dashboard.html">
+                        <i class="fas fa-th-large"></i> Tableau de bord
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="mes-cours.html">
+                        <i class="fas fa-book"></i> Mes cours
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="mes-etudiants.html">
+                        <i class="fas fa-user-graduate"></i> Mes étudiants
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="devoirs.html">
+                        <i class="fas fa-tasks"></i> Devoirs
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="prof-quiz.html">
+                        <i class="fas fa-question-circle"></i> Quiz
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="statistiques.html">
+                        <i class="fas fa-chart-bar"></i> Statistiques
+                    </a>
+                </li>
+            </ul>
+            <p class="text-muted small text-uppercase ms-3 mb-2">Communauté</p>
+            <ul class="nav flex-column mb-4">
+                <li class="nav-item">
+                    <a class="nav-link" href="forum.html">
+                        <i class="fas fa-users"></i> Forum
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="messages.html">
+                        <i class="fas fa-comments"></i> Messages
+                        <span class="badge rounded-pill bg-danger float-end">5</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="conference.html">
+                        <i class="fas fa-video"></i> Conférences
+                    </a>
+                </li>
+            </ul>
+            <p class="text-muted small text-uppercase ms-3 mb-2">Compte</p>
+            <ul class="nav flex-column">
+                <li class="nav-item">
+                    <a class="nav-link" href="profil.html">
+                        <i class="fas fa-user-circle"></i> Profil
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="parametres.html">
+                        <i class="fas fa-cog"></i> Paramètres
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="../index.html">
+                        <i class="fas fa-sign-out-alt"></i> Déconnexion
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <!-- Top Navbar -->
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h2 class="mb-0 fw-bold">Messages</h2>
+            <div class="d-flex align-items-center">
+                <div class="position-relative me-3">
+                    <button class="btn btn-light position-relative" type="button">
+                        <i class="far fa-bell"></i>
+                        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                            3
+                        </span>
+                    </button>
+                </div>
+                <div class="dropdown navbar-profile">
+                    <a class="dropdown-toggle d-flex align-items-center" href="#" role="button" id="profileDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                        <img src="C:\Users\salah\OneDrive\Bureau\eduflex-landing\assets\images\u1.png" alt="Profile" class="avatar me-2">
+                        <div>
+                            <p class="mb-0 fw-medium">Prof. Laurent Martin</p>
+                            <p class="text-muted small mb-0">Enseignant</p>
+                        </div>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-end shadow" aria-labelledby="profileDropdown">
+                        <li><a class="dropdown-item" href="profil.html"><i class="fas fa-user-circle"></i> Mon profil</a></li>
+                        <li><a class="dropdown-item" href="mes-cours.html"><i class="fas fa-book"></i> Mes cours</a></li>
+                        <li><a class="dropdown-item" href="parametres.html"><i class="fas fa-cog"></i> Paramètres</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="../index.html"><i class="fas fa-sign-out-alt"></i> Déconnexion</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Messages Content -->
+        <div class="row g-4">
+            <!-- Contacts List -->
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-header bg-white p-3">
+                        <div class="input-group">
+                            <input type="text" class="form-control" placeholder="Rechercher un contact...">
+                            <button class="btn btn-outline-secondary" type="button">
+                                <i class="fas fa-search"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="card-body p-0">
+                        <div class="list-group list-group-flush">
+                            <!-- Contact 1 -->
+                            <a href="#" class="list-group-item list-group-item-action active py-3">
+                                <div class="d-flex">
+                                    <img src="C:\Users\salah\OneDrive\Bureau\eduflex-landing\assets\images\1.png" class="avatar me-3" alt="Marie">
+                                    <div class="flex-grow-1">
+                                        <div class="d-flex justify-content-between align-items-center mb-1">
+                                            <h6 class="mb-0">Marie Dupont</h6>
+                                            <small class="text-muted">09:45</small>
+                                        </div>
+                                        <p class="small mb-0 text-truncate">Question sur le dernier TP...</p>
+                                    </div>
+                                </div>
+                            </a>
+
+                            <!-- Contact 2 -->
+                            <a href="#" class="list-group-item list-group-item-action py-3">
+                                <div class="d-flex">
+                                    <img src="C:\Users\salah\OneDrive\Bureau\eduflex-landing\assets\images\2.png" class="avatar me-3" alt="Thomas">
+                                    <div class="flex-grow-1">
+                                        <div class="d-flex justify-content-between align-items-center mb-1">
+                                            <h6 class="mb-0">Thomas Leroy</h6>
+                                            <small class="text-muted">Hier</small>
+                                        </div>
+                                        <p class="small mb-0 text-truncate">Merci pour votre aide !</p>
+                                    </div>
+                                </div>
+                            </a>
+
+                            <!-- Contact 3 -->
+                            <a href="#" class="list-group-item list-group-item-action py-3">
+                                <div class="d-flex">
+                                    <img src="C:\Users\salah\OneDrive\Bureau\eduflex-landing\assets\images\3.png" class="avatar me-3" alt="Sophie">
+                                    <div class="flex-grow-1">
+                                        <div class="d-flex justify-content-between align-items-center mb-1">
+                                            <h6 class="mb-0">Sophie Martin</h6>
+                                            <small class="text-muted">Lun</small>
+                                        </div>
+                                        <p class="small mb-0 text-truncate">À propos du projet final...</p>
+                                    </div>
+                                </div>
+                            </a>
+
+                            <!-- Contact 4 -->
+                            <a href="#" class="list-group-item list-group-item-action py-3">
+                                <div class="d-flex">
+                                    <img src="C:\Users\salah\OneDrive\Bureau\eduflex-landing\assets\images\u2.png" class="avatar me-3" alt="Lucas">
+                                    <div class="flex-grow-1">
+                                        <div class="d-flex justify-content-between align-items-center mb-1">
+                                            <h6 class="mb-0">Lucas Bernard</h6>
+                                            <small class="text-muted">Dim</small>
+                                        </div>
+                                        <p class="small mb-0 text-truncate">Documentation du cours...</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Chat Area -->
+            <div class="col-md-8">
+                <div class="card">
+                    <!-- Chat Header -->
+                    <div class="card-header bg-white p-3">
+                        <div class="d-flex align-items-center">
+                            <img src="C:\Users\salah\OneDrive\Bureau\eduflex-landing\assets\images\1.png" class="avatar me-3" alt="Marie">
+                            <div>
+                                <h6 class="mb-0">Marie Dupont</h6>
+                                <p class="text-muted small mb-0">En ligne</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Chat Messages -->
+                    <div class="card-body chat-messages p-4">
+                        <!-- Message from other -->
+                        <div class="message-other mb-3">
+                            <div class="d-flex">
+                                <img src="C:\Users\salah\OneDrive\Bureau\eduflex-landing\assets\images\1.png" class="avatar me-2" alt="Marie">
+                                <div>
+                                    <div class="message-bubble p-3 mb-1">
+                                        Bonjour Professeur, j'ai une question concernant le dernier TP sur les modèles de Machine Learning. Pouvez-vous m'aider ?
+                                    </div>
+                                    <small class="text-muted">09:30</small>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Message from me -->
+                        <div class="message-me text-end mb-3">
+                            <div class="d-flex justify-content-end">
+                                <div>
+                                    <div class="message-bubble bg-primary text-white p-3 mb-1">
+                                        Bien sûr, je peux vous aider. Quelle est votre question exactement ?
+                                    </div>
+                                    <small class="text-muted">09:32</small>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Message from other -->
+                        <div class="message-other mb-3">
+                            <div class="d-flex">
+                                <img src="C:\Users\salah\OneDrive\Bureau\eduflex-landing\assets\images\1.png" class="avatar me-2" alt="Marie">
+                                <div>
+                                    <div class="message-bubble p-3 mb-1">
+                                        Je n'arrive pas à comprendre pourquoi mon modèle de classification donne des résultats incohérents. J'ai suivi toutes les étapes du cours...
+                                    </div>
+                                    <small class="text-muted">09:45</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Chat Input -->
+                    <div class="card-footer bg-white p-3">
+                        <form class="d-flex">
+                            <div class="input-group">
+                                <button class="btn btn-outline-secondary" type="button">
+                                    <i class="fas fa-paperclip"></i>
+                                </button>
+                                <input type="text" class="form-control" placeholder="Écrivez votre message...">
+                                <button class="btn btn-primary" type="submit">
+                                    <i class="fas fa-paper-plane"></i>
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap 5 JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EduFlex - Forum Étudiant</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts - Poppins -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/etud-style.css">
+</head>
+<body>
+    <!-- Sidebar -->
+    <div class="sidebar py-3">
+        <div class="text-center py-3 mb-3">
+            <a class="navbar-brand fw-bold" href="../index.html">
+                <span class="text-gradient fs-4">EduFlex</span>
+            </a>
+        </div>
+        <div class="px-3">
+            <div class="position-relative mb-4">
+                <input type="text" class="form-control search-input py-2" placeholder="Rechercher...">
+                <i class="fas fa-search search-icon"></i>
+            </div>
+            <p class="text-muted small text-uppercase ms-3 mb-2">Principal</p>
+            <ul class="nav flex-column mb-4">
+                <li class="nav-item">
+                    <a class="nav-link" href="student-dashboard.html">
+                        <i class="fas fa-th-large"></i> Tableau de bord
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="my-courses.html">
+                        <i class="fas fa-book"></i> Mes cours
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="planning.html">
+                        <i class="fas fa-calendar-alt"></i> Planning
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="assignments.html">
+                        <i class="fas fa-tasks"></i> Devoirs
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="quiz.html">
+                        <i class="fas fa-question-circle"></i> Quiz
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="certificates.html">
+                        <i class="fas fa-certificate"></i> Certificats
+                    </a>
+                </li>
+            </ul>
+            <p class="text-muted small text-uppercase ms-3 mb-2">Communauté</p>
+            <ul class="nav flex-column mb-4">
+                <li class="nav-item">
+                    <a class="nav-link active" href="forum.html">
+                        <i class="fas fa-users"></i> Forum
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="messages.html">
+                        <i class="fas fa-comments"></i> Messages
+                        <span class="badge rounded-pill bg-danger float-end">3</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="conferences.html">
+                        <i class="fas fa-video"></i> Conférences
+                    </a>
+                </li>
+            </ul>
+            <p class="text-muted small text-uppercase ms-3 mb-2">Compte</p>
+            <ul class="nav flex-column">
+                <li class="nav-item">
+                    <a class="nav-link" href="profile.html">
+                        <i class="fas fa-user-circle"></i> Profil
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="etud-param.html">
+                        <i class="fas fa-cog"></i> Paramètres
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">
+                        <i class="fas fa-sign-out-alt"></i> Déconnexion
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <!-- Top Navbar -->
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h2 class="mb-0 fw-bold">Forum de Discussion</h2>
+            <div class="d-flex align-items-center">
+                <div class="position-relative me-3">
+                    <button class="btn btn-light position-relative" type="button">
+                        <i class="far fa-bell"></i>
+                        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                            2
+                        </span>
+                    </button>
+                </div>
+                <div class="dropdown navbar-profile">
+                    <a class="dropdown-toggle d-flex align-items-center" href="#" role="button" id="profileDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                        <img src="users/1.png" alt="Profile" class="avatar me-2">
+                        <div>
+                            <p class="mb-0 fw-medium">Marie Dupont</p>
+                            <p class="text-muted small mb-0">Étudiante</p>
+                        </div>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-end shadow" aria-labelledby="profileDropdown">
+                        <li><a class="dropdown-item" href="profile.html"><i class="fas fa-user-circle"></i> Mon profil</a></li>
+                        <li><a class="dropdown-item" href="certificates.html"><i class="fas fa-certificate"></i> Mes certificats</a></li>
+                        <li><a class="dropdown-item" href="etud-param.html"><i class="fas fa-cog"></i> Paramètres</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="..\index.html"><i class="fas fa-sign-out-alt"></i> Déconnexion</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Forum Content -->
+        <div class="row g-4">
+            <!-- Forum Categories -->
+            <div class="col-md-4">
+                <div class="card h-100">
+                    <div class="card-header bg-white py-3">
+                        <h5 class="mb-0 fw-bold">Catégories</h5>
+                    </div>
+                    <div class="card-body p-0">
+                        <div class="list-group list-group-flush">
+                            <a href="#" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center p-3">
+                                <div>
+                                    <i class="fas fa-laptop-code text-primary me-2"></i>
+                                    Développement Web
+                                </div>
+                                <span class="badge bg-primary rounded-pill">24</span>
+                            </a>
+                            <a href="#" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center p-3">
+                                <div>
+                                    <i class="fas fa-brain text-success me-2"></i>
+                                    Intelligence Artificielle
+                                </div>
+                                <span class="badge bg-success rounded-pill">18</span>
+                            </a>
+                            <a href="#" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center p-3">
+                                <div>
+                                    <i class="fas fa-database text-info me-2"></i>
+                                    Data Science
+                                </div>
+                                <span class="badge bg-info rounded-pill">15</span>
+                            </a>
+                            <a href="#" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center p-3">
+                                <div>
+                                    <i class="fas fa-palette text-warning me-2"></i>
+                                    Design UI/UX
+                                </div>
+                                <span class="badge bg-warning rounded-pill">12</span>
+                            </a>
+                            <a href="#" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center p-3">
+                                <div>
+                                    <i class="fas fa-question-circle text-danger me-2"></i>
+                                    Questions Générales
+                                </div>
+                                <span class="badge bg-danger rounded-pill">30</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Recent Discussions -->
+            <div class="col-md-8">
+                <div class="card h-100">
+                    <div class="card-header bg-white d-flex justify-content-between align-items-center py-3">
+                        <h5 class="mb-0 fw-bold">Discussions Récentes</h5>
+                        <button class="btn btn-primary">
+                            <i class="fas fa-plus me-2"></i>Nouvelle Discussion
+                        </button>
+                    </div>
+                    <div class="card-body p-0">
+                        <div class="list-group list-group-flush">
+                            <!-- Discussion 1 -->
+                            <div class="list-group-item p-3">
+                                <div class="d-flex">
+                                    <img src="users/2.png" alt="User" class="rounded-circle me-3" width="40" height="40">
+                                    <div class="flex-grow-1">
+                                        <div class="d-flex justify-content-between align-items-center mb-1">
+                                            <h6 class="mb-0">Comment débuter avec React.js ?</h6>
+                                            <span class="badge badge-course">Web</span>
+                                        </div>
+                                        <p class="text-muted small mb-2">Par Thomas Martin • Il y a 2 heures</p>
+                                        <div class="d-flex align-items-center">
+                                            <span class="me-3"><i class="far fa-comment text-muted me-1"></i> 12 réponses</span>
+                                            <span><i class="far fa-eye text-muted me-1"></i> 45 vues</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Discussion 2 -->
+                            <div class="list-group-item p-3">
+                                <div class="d-flex">
+                                    <img src="users/3.png" alt="User" class="rounded-circle me-3" width="40" height="40">
+                                    <div class="flex-grow-1">
+                                        <div class="d-flex justify-content-between align-items-center mb-1">
+                                            <h6 class="mb-0">Les meilleures pratiques en Machine Learning</h6>
+                                            <span class="badge badge-ai">IA</span>
+                                        </div>
+                                        <p class="text-muted small mb-2">Par Sophie Dubois • Il y a 5 heures</p>
+                                        <div class="d-flex align-items-center">
+                                            <span class="me-3"><i class="far fa-comment text-muted me-1"></i> 8 réponses</span>
+                                            <span><i class="far fa-eye text-muted me-1"></i> 32 vues</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Discussion 3 -->
+                            <div class="list-group-item p-3">
+                                <div class="d-flex">
+                                    <img src="users/4.png" alt="User" class="rounded-circle me-3" width="40" height="40">
+                                    <div class="flex-grow-1">
+                                        <div class="d-flex justify-content-between align-items-center mb-1">
+                                            <h6 class="mb-0">Analyse de données avec Python : Tips & Tricks</h6>
+                                            <span class="badge badge-ai">Data</span>
+                                        </div>
+                                        <p class="text-muted small mb-2">Par Lucas Bernard • Il y a 8 heures</p>
+                                        <div class="d-flex align-items-center">
+                                            <span class="me-3"><i class="far fa-comment text-muted me-1"></i> 15 réponses</span>
+                                            <span><i class="far fa-eye text-muted me-1"></i> 67 vues</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Discussion 4 -->
+                            <div class="list-group-item p-3">
+                                <div class="d-flex">
+                                    <img src="users/5.png" alt="User" class="rounded-circle me-3" width="40" height="40">
+                                    <div class="flex-grow-1">
+                                        <div class="d-flex justify-content-between align-items-center mb-1">
+                                            <h6 class="mb-0">Principes de design pour applications mobiles</h6>
+                                            <span class="badge badge-course">Design</span>
+                                        </div>
+                                        <p class="text-muted small mb-2">Par Emma Laurent • Il y a 12 heures</p>
+                                        <div class="d-flex align-items-center">
+                                            <span class="me-3"><i class="far fa-comment text-muted me-1"></i> 10 réponses</span>
+                                            <span><i class="far fa-eye text-muted me-1"></i> 40 vues</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Popular Topics -->
+        <div class="row mt-4">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header bg-white py-3">
+                        <h5 class="mb-0 fw-bold">Sujets Populaires</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="row g-3">
+                            <div class="col-md-3">
+                                <div class="card h-100 border">
+                                    <div class="card-body">
+                                        <span class="badge badge-course mb-2">Web</span>
+                                        <h6 class="card-title mb-2">JavaScript ES6+</h6>
+                                        <p class="card-text small text-muted">Discussion sur les nouvelles fonctionnalités de JavaScript</p>
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <span class="small"><i class="far fa-comment text-muted"></i> 45</span>
+                                            <span class="small"><i class="far fa-heart text-danger"></i> 23</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="card h-100 border">
+                                    <div class="card-body">
+                                        <span class="badge badge-ai mb-2">IA</span>
+                                        <h6 class="card-title mb-2">Deep Learning</h6>
+                                        <p class="card-text small text-muted">Exploration des réseaux de neurones profonds</p>
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <span class="small"><i class="far fa-comment text-muted"></i> 38</span>
+                                            <span class="small"><i class="far fa-heart text-danger"></i> 19</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="card h-100 border">
+                                    <div class="card-body">
+                                        <span class="badge badge-course mb-2">Design</span>
+                                        <h6 class="card-title mb-2">Design System</h6>
+                                        <p class="card-text small text-muted">Création et maintenance d'un design system</p>
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <span class="small"><i class="far fa-comment text-muted"></i> 32</span>
+                                            <span class="small"><i class="far fa-heart text-danger"></i> 15</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="card h-100 border">
+                                    <div class="card-body">
+                                        <span class="badge badge-ai mb-2">Data</span>
+                                        <h6 class="card-title mb-2">Big Data</h6>
+                                        <p class="card-text small text-muted">Gestion et analyse de données massives</p>
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <span class="small"><i class="far fa-comment text-muted"></i> 28</span>
+                                            <span class="small"><i class="far fa-heart text-danger"></i> 12</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../assets/js/etud-script.js"></script>
+</body>
+</html> 

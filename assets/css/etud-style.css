@@ -1,0 +1,224 @@
+:root {
+    --primary: #5461FF;
+    --primary-light: #EEF0FF;
+    --secondary: #5D7DFF;
+    --dark: #232245;
+    --success: #36B37E;
+    --warning: #FFAB00;
+    --danger: #FF5630;
+    --bg-light: #F9FAFB;
+    --border-color: #E5E7EB;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--bg-light);
+    color: var(--dark);
+}
+
+.text-gradient {
+    background: linear-gradient(90deg, var(--primary) 0%, var(--secondary) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.sidebar {
+    background-color: white;
+    border-right: 1px solid var(--border-color);
+    height: 100vh;
+    position: fixed;
+    width: 250px;
+    z-index: 1000;
+    overflow-y: auto;
+}
+
+.sidebar .nav-link {
+    color: #6B7280;
+    padding: 0.75rem 1.25rem;
+    border-radius: 8px;
+    margin-bottom: 0.25rem;
+    transition: all 0.3s;
+}
+
+.sidebar .nav-link:hover, .sidebar .nav-link.active {
+    background-color: var(--primary-light);
+    color: var(--primary);
+}
+
+.sidebar .nav-link.active {
+    font-weight: 500;
+}
+
+.sidebar .nav-link i {
+    margin-right: 10px;
+    width: 20px;
+    text-align: center;
+}
+
+.main-content {
+    margin-left: 250px;
+    padding: 2rem;
+}
+
+.card {
+    border: none;
+    border-radius: 12px;
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.card-stat {
+    border-radius: 12px;
+    padding: 1.25rem;
+}
+
+.card-stat i {
+    font-size: 1.5rem;
+    margin-right: 1rem;
+}
+
+.bg-primary-light {
+    background-color: var(--primary-light);
+}
+
+.progress {
+    height: 8px;
+    border-radius: 4px;
+}
+
+.course-card .progress {
+    height: 6px;
+}
+
+.avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.avatar-lg {
+    width: 60px;
+    height: 60px;
+}
+
+.badge-course {
+    background-color: #E6FFFA;
+    color: #0BA37F;
+}
+
+.badge-ai {
+    background-color: #EFF6FF;
+    color: #1E40AF;
+}
+
+.badge-live {
+    background-color: #FEF2F2;
+    color: #DC2626;
+}
+
+.timeline {
+    position: relative;
+    padding-left: 30px;
+}
+
+.timeline:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 2px;
+    background-color: #E5E7EB;
+}
+
+.timeline-item {
+    position: relative;
+    padding-bottom: 1.5rem;
+}
+
+.timeline-item:last-child {
+    padding-bottom: 0;
+}
+
+.timeline-item:before {
+    content: "";
+    position: absolute;
+    left: -30px;
+    top: 0;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: white;
+    border: 2px solid var(--primary);
+}
+
+.schedule-card {
+    border-left: 4px solid var(--primary);
+}
+
+.navbar-profile .dropdown-toggle::after {
+    display: none;
+}
+
+.navbar-profile .dropdown-menu {
+    min-width: 15rem;
+}
+
+.notification-badge {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    padding: 4px;
+    border-radius: 50%;
+    font-size: 0.65rem;
+    min-width: 18px;
+    text-align: center;
+}
+
+
+
+.dropdown-menu .dropdown-item i {
+    margin-right: 10px;
+    width: 18px;
+    text-align: center;
+}
+
+.course-item {
+    border-radius: 12px;
+    transition: all 0.3s;
+}
+
+.course-item:hover {
+    background-color: #f8faff;
+    transform: translateY(-2px);
+}
+
+.quiz-option:hover {
+    border-color: var(--primary) !important;
+    background-color: var(--primary-light);
+}
+
+.quiz-option.selected {
+    border-color: var(--primary) !important;
+    background-color: var(--primary-light);
+}
+
+.search-input {
+    background-color: var(--bg-light);
+    border: 1px solid var(--border-color);
+    padding-left: 40px;
+}
+
+.search-icon {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #6B7280;
+}

@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EduFlex - Forum</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/etud-style.css">
+    <style>
+        .forum-category {
+            border-left: 4px solid var(--primary);
+            transition: all 0.3s;
+        }
+        
+        .forum-category:hover {
+            transform: translateX(5px);
+        }
+        
+        .forum-stats {
+            font-size: 0.85rem;
+        }
+        
+        .topic-item {
+            transition: all 0.3s;
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        .topic-item:hover {
+            background-color: var(--primary-light);
+        }
+        
+        .topic-badge {
+            font-size: 0.75rem;
+        }
+        
+        .last-post {
+            font-size: 0.85rem;
+        }
+        
+        .avatar-xs {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<body>
+    <!-- Sidebar -->
+    <div class="sidebar py-3">
+        <div class="text-center py-3 mb-3">
+            <a class="navbar-brand fw-bold" href="../index.html">
+                <span class="text-gradient fs-4">EduFlex</span>
+            </a>
+        </div>
+        <div class="px-3">
+            <div class="position-relative mb-4">
+                <input type="text" class="form-control search-input py-2" placeholder="Rechercher...">
+                <i class="fas fa-search search-icon"></i>
+            </div>
+            <p class="text-muted small text-uppercase ms-3 mb-2">Principal</p>
+            <ul class="nav flex-column mb-4">
+                <li class="nav-item">
+                    <a class="nav-link" href="prof-dashboard.html">
+                        <i class="fas fa-th-large"></i> Tableau de bord
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="mes-cours.html">
+                        <i class="fas fa-book"></i> Mes cours
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="mes-etudiants.html">
+                        <i class="fas fa-user-graduate"></i> Mes étudiants
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="devoirs.html">
+                        <i class="fas fa-tasks"></i> Devoirs
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="prof-quiz.html">
+                        <i class="fas fa-question-circle"></i> Quiz
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="statistiques.html">
+                        <i class="fas fa-chart-bar"></i> Statistiques
+                    </a>
+                </li>
+            </ul>
+            <p class="text-muted small text-uppercase ms-3 mb-2">Communauté</p>
+            <ul class="nav flex-column mb-4">
+                <li class="nav-item">
+                    <a class="nav-link active" href="forum.html">
+                        <i class="fas fa-users"></i> Forum
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="messages.html">
+                        <i class="fas fa-comments"></i> Messages
+                        <span class="badge rounded-pill bg-danger float-end">5</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="conference.html">
+                        <i class="fas fa-video"></i> Conférences
+                    </a>
+                </li>
+            </ul>
+            <p class="text-muted small text-uppercase ms-3 mb-2">Compte</p>
+            <ul class="nav flex-column">
+                <li class="nav-item">
+                    <a class="nav-link" href="profil.html">
+                        <i class="fas fa-user-circle"></i> Profil
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="parametres.html">
+                        <i class="fas fa-cog"></i> Paramètres
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="../index.html">
+                        <i class="fas fa-sign-out-alt"></i> Déconnexion
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <!-- Top Navbar -->
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h2 class="mb-0 fw-bold">Forum</h2>
+            <div class="d-flex align-items-center">
+                <div class="position-relative me-3">
+                    <button class="btn btn-light position-relative" type="button">
+                        <i class="far fa-bell"></i>
+                        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                            3
+                        </span>
+                    </button>
+                </div>
+                <div class="dropdown navbar-profile">
+                    <a class="dropdown-toggle d-flex align-items-center" href="#" role="button" id="profileDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                        <img src="C:\Users\salah\OneDrive\Bureau\eduflex-landing\assets\images\u1.png" alt="Profile" class="avatar me-2">
+                        <div>
+                            <p class="mb-0 fw-medium">Prof. Laurent Martin</p>
+                            <p class="text-muted small mb-0">Enseignant</p>
+                        </div>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-end shadow" aria-labelledby="profileDropdown">
+                        <li><a class="dropdown-item" href="profil.html"><i class="fas fa-user-circle"></i> Mon profil</a></li>
+                        <li><a class="dropdown-item" href="mes-cours.html"><i class="fas fa-book"></i> Mes cours</a></li>
+                        <li><a class="dropdown-item" href="parametres.html"><i class="fas fa-cog"></i> Paramètres</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="../index.html"><i class="fas fa-sign-out-alt"></i> Déconnexion</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Forum Content -->
+        <div class="row g-4">
+            <!-- Forum Categories -->
+            <div class="col-md-4">
+                <div class="card mb-4">
+                    <div class="card-header bg-white d-flex justify-content-between align-items-center">
+                        <h5 class="mb-0">Catégories</h5>
+                        <button class="btn btn-sm btn-primary">
+                            <i class="fas fa-plus"></i> Nouvelle
+                        </button>
+                    </div>
+                    <div class="list-group list-group-flush">
+                        <a href="#" class="list-group-item list-group-item-action active d-flex justify-content-between align-items-center">
+                            Annonces importantes
+                            <span class="badge bg-primary rounded-pill">3</span>
+                        </a>
+                        <a href="#" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+                            Questions générales
+                            <span class="badge bg-secondary rounded-pill">12</span>
+                        </a>
+                        <a href="#" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+                            Ressources partagées
+                            <span class="badge bg-secondary rounded-pill">8</span>
+                        </a>
+                        <a href="#" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+                            Discussions techniques
+                            <span class="badge bg-secondary rounded-pill">15</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Popular Tags -->
+                <div class="card">
+                    <div class="card-header bg-white">
+                        <h5 class="mb-0">Tags populaires</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="d-flex flex-wrap gap-2">
+                            <span class="badge bg-primary">Python</span>
+                            <span class="badge bg-primary">Machine Learning</span>
+                            <span class="badge bg-primary">Web Dev</span>
+                            <span class="badge bg-primary">JavaScript</span>
+                            <span class="badge bg-primary">Data Science</span>
+                            <span class="badge bg-primary">React</span>
+                            <span class="badge bg-primary">Node.js</span>
+                            <span class="badge bg-primary">UI/UX</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Forum Posts -->
+            <div class="col-md-8">
+                <!-- Search and Filter -->
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <div class="input-group">
+                                    <input type="text" class="form-control" placeholder="Rechercher dans le forum...">
+                                    <button class="btn btn-outline-secondary" type="button">
+                                        <i class="fas fa-search"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="col-md-6 text-md-end">
+                                <button class="btn btn-primary">
+                                    <i class="fas fa-plus"></i> Nouveau sujet
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Forum Threads -->
+                <div class="card">
+                    <div class="list-group list-group-flush">
+                        <!-- Thread 1 -->
+                        <div class="list-group-item p-3">
+                            <div class="d-flex">
+                                <img src="https://placehold.co/200x200?text=M" class="avatar me-3" alt="Marie">
+                                <div class="flex-grow-1">
+                                    <div class="d-flex justify-content-between align-items-center mb-2">
+                                        <h6 class="mb-0">Problème avec l'installation de TensorFlow</h6>
+                                        <span class="badge bg-primary">Python</span>
+                                    </div>
+                                    <p class="small text-muted mb-2">Démarré par Marie Dupont · 3 réponses · Mis à jour il y a 2h</p>
+                                    <p class="small mb-0">J'ai des difficultés à installer TensorFlow sur mon système. Quelqu'un peut-il m'aider ?</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Thread 2 -->
+                        <div class="list-group-item p-3">
+                            <div class="d-flex">
+                                <img src="https://placehold.co/200x200?text=T" class="avatar me-3" alt="Thomas">
+                                <div class="flex-grow-1">
+                                    <div class="d-flex justify-content-between align-items-center mb-2">
+                                        <h6 class="mb-0">Bonnes pratiques React Hooks</h6>
+                                        <span class="badge bg-primary">React</span>
+                                    </div>
+                                    <p class="small text-muted mb-2">Démarré par Thomas Leroy · 8 réponses · Mis à jour il y a 5h</p>
+                                    <p class="small mb-0">Quelles sont les meilleures pratiques pour utiliser les Hooks dans React ?</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Thread 3 -->
+                        <div class="list-group-item p-3">
+                            <div class="d-flex">
+                                <img src="https://placehold.co/200x200?text=S" class="avatar me-3" alt="Sophie">
+                                <div class="flex-grow-1">
+                                    <div class="d-flex justify-content-between align-items-center mb-2">
+                                        <h6 class="mb-0">Ressources pour l'apprentissage du Machine Learning</h6>
+                                        <span class="badge bg-primary">ML</span>
+                                    </div>
+                                    <p class="small text-muted mb-2">Démarré par Sophie Martin · 12 réponses · Mis à jour il y a 1j</p>
+                                    <p class="small mb-0">Je cherche des ressources pour approfondir mes connaissances en ML.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Thread 4 -->
+                        <div class="list-group-item p-3">
+                            <div class="d-flex">
+                                <img src="https://placehold.co/200x200?text=L" class="avatar me-3" alt="Lucas">
+                                <div class="flex-grow-1">
+                                    <div class="d-flex justify-content-between align-items-center mb-2">
+                                        <h6 class="mb-0">Optimisation des performances Node.js</h6>
+                                        <span class="badge bg-primary">Node.js</span>
+                                    </div>
+                                    <p class="small text-muted mb-2">Démarré par Lucas Bernard · 6 réponses · Mis à jour il y a 2j</p>
+                                    <p class="small mb-0">Comment optimiser les performances d'une application Node.js en production ?</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap 5 JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

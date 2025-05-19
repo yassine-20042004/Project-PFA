@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EduFlex - Quiz</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts - Poppins -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/etud-style.css">
+</head>
+<body>
+    <!-- Sidebar -->
+    <div class="sidebar py-3">
+        <div class="text-center py-3 mb-3">
+            <a class="navbar-brand fw-bold" href="../index.html">
+                <span class="text-gradient fs-4">EduFlex</span>
+            </a>
+        </div>
+        <div class="px-3">
+            <div class="position-relative mb-4">
+                <input type="text" class="form-control search-input py-2" placeholder="Rechercher...">
+                <i class="fas fa-search search-icon"></i>
+            </div>
+            <p class="text-muted small text-uppercase ms-3 mb-2">Principal</p>
+            <ul class="nav flex-column mb-4">
+                <li class="nav-item">
+                    <a class="nav-link" href="student-dashboard.html">
+                        <i class="fas fa-th-large"></i> Tableau de bord
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="my-courses.html">
+                        <i class="fas fa-book"></i> Mes cours
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="planning.html">
+                        <i class="fas fa-calendar-alt"></i> Planning
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="assignments.html">
+                        <i class="fas fa-tasks"></i> Devoirs
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="quiz.html">
+                        <i class="fas fa-question-circle"></i> Quiz
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="certificates.html">
+                        <i class="fas fa-certificate"></i> Certificats
+                    </a>
+                </li>
+            </ul>
+            <p class="text-muted small text-uppercase ms-3 mb-2">Communauté</p>
+            <ul class="nav flex-column mb-4">
+                <li class="nav-item">
+                    <a class="nav-link" href="forum.html">
+                        <i class="fas fa-users"></i> Forum
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="messages.html">
+                        <i class="fas fa-comments"></i> Messages
+                        <span class="badge rounded-pill bg-danger float-end">3</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="conferences.html">
+                        <i class="fas fa-video"></i> Conférences
+                    </a>
+                </li>
+            </ul>
+            <p class="text-muted small text-uppercase ms-3 mb-2">Compte</p>
+            <ul class="nav flex-column">
+                <li class="nav-item">
+                    <a class="nav-link" href="profile.html">
+                        <i class="fas fa-user-circle"></i> Profil
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="etud-param.html">
+                        <i class="fas fa-cog"></i> Paramètres
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="../index.html">
+                        <i class="fas fa-sign-out-alt"></i> Déconnexion
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <!-- Top Navbar -->
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h2 class="mb-0 fw-bold">Quiz et Évaluations</h2>
+            <div class="d-flex align-items-center">
+                <div class="position-relative me-3">
+                    <button class="btn btn-light position-relative" type="button">
+                        <i class="far fa-bell"></i>
+                        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                            2
+                        </span>
+                    </button>
+                </div>
+                <div class="dropdown navbar-profile">
+                    <a class="dropdown-toggle d-flex align-items-center" href="#" role="button" id="profileDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                        <img src="https://placehold.co/200x200?text=M" alt="Profile" class="avatar me-2">
+                        <div>
+                            <p class="mb-0 fw-medium">Marie Dupont</p>
+                            <p class="text-muted small mb-0">Étudiante</p>
+                        </div>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-end shadow" aria-labelledby="profileDropdown">
+                        <li><a class="dropdown-item" href="profile.html"><i class="fas fa-user-circle"></i> Mon profil</a></li>
+                        <li><a class="dropdown-item" href="certificates.html"><i class="fas fa-certificate"></i> Mes certificats</a></li>
+                        <li><a class="dropdown-item" href="etud-param.html"><i class="fas fa-cog"></i> Paramètres</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="../index.html"><i class="fas fa-sign-out-alt"></i> Déconnexion</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Quiz Overview -->
+        <div class="card mb-4">
+            <div class="card-body p-4">
+                <div class="row align-items-center">
+                    <div class="col-md-8 mb-3 mb-md-0">
+                        <h3 class="fw-bold mb-1">Quiz actif : Introduction à l'IA</h3>
+                        <p class="text-muted mb-3">Ce quiz évalue votre compréhension des concepts fondamentaux de l'intelligence artificielle.</p>
+                        <div class="d-flex align-items-center mb-3">
+                            <span class="badge bg-success me-2">10 questions</span>
+                            <span class="badge bg-warning me-2">30 minutes</span>
+                            <span class="badge bg-info">2 tentatives restantes</span>
+                        </div>
+                        <p class="mb-0 small"><i class="fas fa-calendar-alt me-2 text-primary"></i> Date limite : 15 mai 2025, 23:59</p>
+                    </div>
+                    <div class="col-md-4 text-md-end">
+                        <a href="#activeQuiz" class="btn btn-primary" data-bs-toggle="collapse" aria-expanded="false" aria-controls="activeQuiz">Commencer le quiz</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Active Quiz Section (Collapsed by default) -->
+        <div class="collapse mb-4" id="activeQuiz">
+            <div class="card">
+                <div class="card-header bg-white py-3 d-flex justify-content-between align-items-center">
+                    <h5 class="mb-0 fw-bold">Introduction à l'IA - Quiz</h5>
+                    <div class="timer">
+                        <i class="fas fa-clock me-2"></i> Temps restant : <span class="fw-bold">28:45</span>
+                    </div>
+                </div>
+                <div class="card-body p-4">
+                    <!-- Question 1 -->
+                    <div class="mb-4">
+                        <div class="d-flex justify-content-between mb-2">
+                            <h6 class="fw-bold">Question 1/10</h6>
+                            <span class="badge bg-primary">1 point</span>
+                        </div>
+                        <p class="mb-3">Quelle est la différence fondamentale entre l'intelligence artificielle faible et l'intelligence artificielle forte ?</p>
+                        
+                        <div class="quiz-options">
+                            <div class="quiz-option border rounded p-3 mb-2">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="q1" id="q1a">
+                                    <label class="form-check-label w-100" for="q1a">
+                                        L'IA faible est moins coûteuse à développer que l'IA forte.
+                                    </label>
+                                </div>
+                            </div>
+                            
+                            <div class="quiz-option border rounded p-3 mb-2">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="q1" id="q1b">
+                                    <label class="form-check-label w-100" for="q1b">
+                                        L'IA faible est conçue pour une tâche spécifique, tandis que l'IA forte posséderait une intelligence générale comparable à celle de l'humain.
+                                    </label>
+                                </div>
+                            </div>
+                            
+                            <div class="quiz-option border rounded p-3 mb-2">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="q1" id="q1c">
+                                    <label class="form-check-label w-100" for="q1c">
+                                        L'IA faible utilise moins de puissance de calcul que l'IA forte.
+                                    </label>
+                                </div>
+                            </div>
+                            
+                            <div class="quiz-option border rounded p-3 mb-2">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="q1" id="q1d">
+                                    <label class="form-check-label w-100" for="q1d">
+                                        L'IA faible est obsolète, tandis que l'IA forte représente les technologies modernes.
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Question 2 -->
+                    <div class="mb-4">
+                        <div class="d-flex justify-content-between mb-2">
+                            <h6 class="fw-bold">Question 2/10</h6>
+                            <span class="badge bg-primary">1 point</span>
+                        </div>
+                        <p class="mb-3">Qu'est-ce que l'apprentissage supervisé en Machine Learning ?</p>
+                        
+                        <div class="quiz-options">
+                            <div class="quiz-option border rounded p-3 mb-2">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="q2" id="q2a">
+                                    <label class="form-check-label w-100" for="q2a">
+                                        Un algorithme qui apprend sous la supervision constante d'un ingénieur.
+                                    </label>
+                                </div>
+                            </div>
+                            
+                            <div class="quiz-option border rounded p-3 mb-2">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="q2" id="q2b">
+                                    <label class="form-check-label w-100" for="q2b">
+                                        Un algorithme qui ne nécessite aucune intervention humaine.
+                                    </label>
+                                </div>
+                            </div>
+                            
+                            <div class="quiz-option border rounded p-3 mb-2 selected">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="q2" id="q2c" checked>
+                                    <label class="form-check-label w-100" for="q2c">
+                                        Un algorithme qui apprend à partir de données étiquetées pour faire des prédictions ou prendre des décisions.
+                                    </label>
+                                </div>
+                            </div>
+                            
+                            <div class="quiz-option border rounded p-3 mb-2">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="q2" id="q2d">
+                                    <label class="form-check-label w-100" for="q2d">
+                                        Un algorithme qui supervise d'autres algorithmes.
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Quiz Navigation -->
+                    <div class="d-flex justify-content-between mt-4">
+                        <button class="btn btn-outline-secondary" disabled>Question précédente</button>
+                        <button class="btn btn-primary">Question suivante</button>
+                    </div>
+                </div>
+                <div class="card-footer bg-white d-flex justify-content-between py-3">
+                    <button class="btn btn-outline-danger">Abandonner</button>
+                    <button class="btn btn-success">Soumettre toutes les réponses</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="row g-4">
+            <!-- Upcoming Quizzes -->
+            <div class="col-md-8">
+                <div class="card h-100">
+                    <div class="card-header bg-white d-flex align-items-center justify-content-between py-3">
+                        <h5 class="mb-0 fw-bold">Prochains Quiz</h5>
+                        <div class="dropdown">
+                            <button class="btn btn-sm btn-outline-secondary dropdown-toggle" type="button" id="filterDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                                Tous les cours
+                            </button>
+                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="filterDropdown">
+                                <li><a class="dropdown-item active" href="#">Tous les cours</a></li>
+                                <li><a class="dropdown-item" href="#">Intelligence Artificielle</a></li>
+                                <li><a class="dropdown-item" href="#">Développement Web</a></li>
+                                <li><a class="dropdown-item" href="#">Data Science</a></li>
+                                <li><a class="dropdown-item" href="#">Design UI/UX</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="card-body p-0">
+                        <div class="list-group list-group-flush">
+                            <!-- Quiz 1 -->
+                            <div class="list-group-item p-3">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div>
+                                        <div class="d-flex align-items-center mb-2">
+                                            <span class="badge badge-ai me-2">Intelligence Artificielle</span>
+                                            <span class="text-muted small">20 mai 2025</span>
+                                        </div>
+                                        <h6 class="mb-1 fw-bold">Réseaux de neurones et Deep Learning</h6>
+                                        <div class="d-flex align-items-center">
+                                            <span class="badge bg-success me-2">15 questions</span>
+                                            <span class="badge bg-warning">45 minutes</span>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <span class="badge bg-secondary mb-2 d-block">À venir</span>
+                                        <button class="btn btn-sm btn-outline-primary" disabled>Préparer</button>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Quiz 2 -->
+                            <div class="list-group-item p-3">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div>
+                                        <div class="d-flex align-items-center mb-2">
+                                            <span class="badge badge-course me-2">Développement Web</span>
+                                            <span class="text-muted small">18 mai 2025</span>
+                                        </div>
+                                        <h6 class="mb-1 fw-bold">React Hooks et State Management</h6>
+                                        <div class="d-flex align-items-center">
+                                            <span class="badge bg-success me-2">12 questions</span>
+                                            <span class="badge bg-warning">30 minutes</span>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <span class="badge bg-secondary mb-2 d-block">À venir</span>
+                                        <button class="btn btn-sm btn-outline-primary" disabled>Préparer</button>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Quiz 3 -->
+                            <div class="list-group-item p-3">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div>
+                                        <div class="d-flex align-items-center mb-2">
+                                            <span class="badge badge-ai me-2">Data Science</span>
+                                            <span class="text-muted small">25 mai 2025</span>
+                                        </div>
+                                        <h6 class="mb-1 fw-bold">Analyse statistique et visualisation</h6>
+                                        <div class="d-flex align-items-center">
+                                            <span class="badge bg-success me-2">20 questions</span>
+                                            <span class="badge bg-warning">60 minutes</span>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <span class="badge bg-secondary mb-2 d-block">À venir</span>
+                                        <button class="btn btn-sm btn-outline-primary" disabled>Préparer</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Completed Quizzes -->
+            <div class="col-md-4">
+                <div class="card h-100">
+                    <div class="card-header bg-white py-3">
+                        <h5 class="mb-0 fw-bold">Quiz complétés</h5>
+                    </div>
+                    <div class="card-body p-0">
+                        <div class="list-group list-group-flush">
+                            <!-- Completed Quiz 1 -->
+                            <div class="list-group-item p-3">
+                                <div class="d-flex align-items-center justify-content-between mb-2">
+                                    <span class="badge badge-ai">Intelligence Artificielle</span>
+                                    <span class="badge bg-success">85%</span>
+                                </div>
+                                <h6 class="mb-2 fw-bold">Bases de l'apprentissage automatique</h6>
+                                <div class="progress mb-2" style="height: 6px;">
+                                    <div class="progress-bar bg-success" role="progressbar" style="width: 85%" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                                <div class="d-flex justify-content-between">
+                                    <span class="text-muted small">Terminé le 2 mai 2025</span>
+                                    <a href="#" class="small">Voir les corrections</a>
+                                </div>
+                            </div>
+                            
+                            <!-- Completed Quiz 2 -->
+                            <div class="list-group-item p-3">
+                                <div class="d-flex align-items-center justify-content-between mb-2">
+                                    <span class="badge badge-course">Développement Web</span>
+                                    <span class="badge bg-success">92%</span>
+                                </div>
+                                <h6 class="mb-2 fw-bold">JavaScript ES6+</h6>
+                                <div class="progress mb-2" style="height: 6px;">
+                                    <div class="progress-bar bg-success" role="progressbar" style="width: 92%" aria-valuenow="92" aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                                <div class="d-flex justify-content-between">
+                                    <span class="text-muted small">Terminé le 25 avril 2025</span>
+                                    <a href="#" class="small">Voir les corrections</a>
+                                </div>
+                            </div>
+                            
+                            <!-- Completed Quiz 3 -->
+                            <div class="list-group-item p-3">
+                                <div class="d-flex align-items-center justify-content-between mb-2">
+                                    <span class="badge badge-ai">Data Science</span>
+                                    <span class="badge bg-warning">70%</span>
+                                </div>
+                                <h6 class="mb-2 fw-bold">Manipulation de données avec Pandas</h6>
+                                <div class="progress mb-2" style="height: 6px;">
+                                    <div class="progress-bar bg-warning" role="progressbar" style="width: 70%" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                                <div class="d-flex justify-content-between">
+                                    <span class="text-muted small">Terminé le 18 avril 2025</span>
+                                    <a href="#" class="small">Voir les corrections</a>
+                                </div>
+                            </div>
+                            
+                            <!-- Completed Quiz 4 -->
+                            <div class="list-group-item p-3">
+                                <div class="d-flex align-items-center justify-content-between mb-2">
+                                    <span class="badge badge-course">Design UI/UX</span>
+                                    <span class="badge bg-danger">65%</span>
+                                </div>
+                                <h6 class="mb-2 fw-bold">Principes de design d'interface</h6>
+                                <div class="progress mb-2" style="height: 6px;">
+                                    <div class="progress-bar bg-danger" role="progressbar" style="width: 65%" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                                <div class="d-flex justify-content-between">
+                                    <span class="text-muted small">Terminé le 10 avril 2025</span>
+                                    <a href="#" class="small">Voir les corrections</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap 5 JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Simple script for quiz interactions -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Make quiz options selectable
+            const quizOptions = document.querySelectorAll('.quiz-option');
+            quizOptions.forEach(option => {
+                option.addEventListener('click', function() {
+                    // Find the parent question and clear previous selections
+                    const parentQuestion = this.closest('.quiz-options');
+                    const options = parentQuestion.querySelectorAll('.quiz-option');
+                    options.forEach(opt => {
+                        opt.classList.remove('selected');
+                        const radio = opt.querySelector('input[type="radio"]');
+                        if (radio) radio.checked = false;
+                    });
+                    
+                    // Select this option
+                    this.classList.add('selected');
+                    const radio = this.querySelector('input[type="radio"]');
+                    if (radio) radio.checked = true;
+                });
+            });
+        });
+    </script>
+</body>
+</html>
